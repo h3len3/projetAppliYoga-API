@@ -1,0 +1,6 @@
+@ProjetYoga.API_HostAddress = http://localhost:5063
+
+GET {{ProjetYoga.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
