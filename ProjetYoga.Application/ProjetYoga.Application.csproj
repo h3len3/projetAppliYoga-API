@@ -10,4 +10,16 @@
     <ProjectReference Include="..\ProjetYoga.Domain\ProjetYoga.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="DTO\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Validators\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Services\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Be.Khunly.EFRepository" Version="9.0.1" />
+  </ItemGroup>
+
 </Project>
