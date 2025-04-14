@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ProjetYoga.Infrastructure.Configs
 {
-    public class SpecialEvent : IEntityTypeConfiguration<SpecialEvent>
+    public class SpecialEventConfig : IEntityTypeConfiguration<SpecialEvent>
     {
         public void Configure(EntityTypeBuilder<SpecialEvent> builder)
         {

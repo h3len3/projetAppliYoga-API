@@ -29,11 +29,7 @@ namespace ProjetYoga.Infrastructure.Configs
                    .IsRequired()
                    .HasMaxLength(100);
 
-            // Relation avec Adepts (one-to-many)
-            builder.HasMany(a => a.Adepts)
-                   .WithOne(ad => ad.Address)
-                   .HasForeignKey(ad => ad.AddressId)
-                   .OnDelete(DeleteBehavior.Cascade); //  suppression en cascade
+           
         }
     }
 }

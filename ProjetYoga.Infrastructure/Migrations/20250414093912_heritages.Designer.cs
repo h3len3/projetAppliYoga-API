@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetYoga.Infrastructure;
 
@@ -11,9 +12,11 @@ using ProjetYoga.Infrastructure;
 namespace ProjetYoga.Infrastructure.Migrations
 {
     [DbContext(typeof(ProjetYogaContext))]
-    partial class ProjetYogaContextModelSnapshot : ModelSnapshot
+    [Migration("20250414093912_heritages")]
+    partial class heritages
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -158,13 +161,6 @@ namespace ProjetYoga.Infrastructure.Migrations
                     b.ToTable("IndividualSession", (string)null);
                 });
 
-            modelBuilder.Entity("ProjetYoga.Domain.Entities.SpecialEvent", b =>
-                {
-                    b.HasBaseType("ProjetYoga.Domain.Entities.Event");
-
-                    b.ToTable("SpecialEvent", (string)null);
-                });
-
             modelBuilder.Entity("ProjetYoga.Domain.Entities.Adept", b =>
                 {
                     b.HasBaseType("ProjetYoga.Domain.Entities.User");
@@ -220,15 +216,6 @@ namespace ProjetYoga.Infrastructure.Migrations
                     b.HasOne("ProjetYoga.Domain.Entities.Event", null)
                         .WithOne()
                         .HasForeignKey("ProjetYoga.Domain.Entities.IndividualSession", "Id_Event")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
-            modelBuilder.Entity("ProjetYoga.Domain.Entities.SpecialEvent", b =>
-                {
-                    b.HasOne("ProjetYoga.Domain.Entities.Event", null)
-                        .WithOne()
-                        .HasForeignKey("ProjetYoga.Domain.Entities.SpecialEvent", "Id_Event")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

@@ -13,7 +13,7 @@ namespace ProjetYoga.Infrastructure.Configs
     {
         public void Configure(EntityTypeBuilder<IndividualSession> builder)
         {
-            builder.ToTable("Event");
+            builder.ToTable("IndividualSession");
         }
     }
 }
