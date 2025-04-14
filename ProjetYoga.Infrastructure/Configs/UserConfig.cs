@@ -28,16 +28,9 @@ namespace ProjetYoga.Infrastructure.Configs
             builder.HasIndex(u => u.Email)
                    .IsUnique();
 
-            builder.Property(u => u.PasswordHash)
+            builder.Property(u => u.Password)
                    .IsRequired();
 
-            builder.Property(u => u.Salt)
-                   .IsRequired();
-
-       //     builder.HasMany(u => u.Reservations)
-       //.WithOne(r => r.User)
-       //.HasForeignKey(r => r.UserId)
-       //.OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

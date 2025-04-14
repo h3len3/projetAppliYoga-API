@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetYoga.Infrastructure;
 
@@ -11,9 +12,11 @@ using ProjetYoga.Infrastructure;
 namespace ProjetYoga.Infrastructure.Migrations
 {
     [DbContext(typeof(ProjetYogaContext))]
-    partial class ProjetYogaContextModelSnapshot : ModelSnapshot
+    [Migration("20250414072216_testUserWithoutRelation")]
+    partial class testUserWithoutRelation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,6 +50,9 @@ namespace ProjetYoga.Infrastructure.Migrations
                     b.Property<int?>("MinSub")
                         .HasColumnType("int");
 
+                    b.Property<int>("PlaceEventYogaId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime2");
 
@@ -60,56 +66,6 @@ namespace ProjetYoga.Infrastructure.Migrations
                     b.ToTable("Event", (string)null);
                 });
 
-            modelBuilder.Entity("ProjetYoga.Domain.Entities.PlaceEventYoga", b =>
-                {
-                    b.Property<int>("id_PlaceEventYoga")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id_PlaceEventYoga"));
-
-                    b.Property<string>("namePlaceEventYoga")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.HasKey("id_PlaceEventYoga");
-
-                    b.ToTable("PlaceEventYoga", (string)null);
-                });
-
-            modelBuilder.Entity("ProjetYoga.Domain.Entities.TypeSub", b =>
-                {
-                    b.Property<int>("Id_TypeSub")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id_TypeSub"));
-
-                    b.Property<string>("DescriptionTypeSub")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("NameTypeSub")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id_TypeSub");
-
-                    b.ToTable("TypeSub", (string)null);
-                });
-
             modelBuilder.Entity("ProjetYoga.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
@@ -120,8 +76,7 @@ namespace ProjetYoga.Infrastructure.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Password")
                         .IsRequired()
@@ -129,10 +84,7 @@ namespace ProjetYoga.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Email")
-                        .IsUnique();
-
-                    b.ToTable("User", (string)null);
+                    b.ToTable("Users");
                 });
 #pragma warning restore 612, 618
         }

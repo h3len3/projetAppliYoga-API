@@ -52,18 +52,7 @@ namespace ProjetYoga.Infrastructure.Configs
             // Available : requis
             builder.Property(e => e.Available)
                    .IsRequired();
-
-            // FK vers PlaceEventYoga (assume navigation property e.PlaceEventYogaId et e.PlaceEventYoga)
-            //builder.HasOne(e => e.PlaceEventYoga)
-            //       .WithMany(p => p.Events)
-            //      .HasForeignKey(e => e.PlaceEventYogaId)
-             //      .OnDelete(DeleteBehavior.Restrict); // ou autre comportement selon logique métier
-
-            // FK vers Reservation - relation many-to-many avec User via Reservation
-           // builder.HasMany(e => e.Reservations)
-            //       .WithOne(r => r.Event)
-            //       .HasForeignKey(r => r.EventId)
-            //       .OnDelete(DeleteBehavior.Cascade); // ajustable selon logique
+      
         }
 
     }

@@ -15,8 +15,9 @@ namespace ProjetYoga.Domain.Entities
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
 
-        // Navigation 
-        public ICollection<GroupSession> GroupSessions { get; set; } = new List<GroupSession>();
+        // Relations : 
+        // many to many : avec User
+        // one to many avec GroupSession - FK ds GroupSession
     }
 
 }

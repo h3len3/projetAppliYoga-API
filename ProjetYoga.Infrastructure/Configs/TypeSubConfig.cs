@@ -40,11 +40,6 @@ namespace ProjetYoga.Infrastructure.Configs
             builder.Property(t => t.EndDate)
                 .IsRequired();
 
-            // Relation One to Many avec GroupSession
-            builder.HasMany(t => t.GroupSessions)
-                .WithOne(g => g.TypeSub)
-                .HasForeignKey(g => g.Id_TypeSub)
-                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

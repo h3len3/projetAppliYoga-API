@@ -10,9 +10,9 @@ namespace ProjetYoga.Domain.Entities
     {
         public int Id { get; set; }
 
-        public string Title { get; set; } = string.Empty;
+        public string Title { get; set; }
 
-        public string Description { get; set; } = string.Empty;
+        public string Description { get; set; } 
 
         public DateTime StartDate { get; set; }
 
@@ -24,12 +24,9 @@ namespace ProjetYoga.Domain.Entities
 
         public bool Available { get; set; }
 
-        // Foreign key vers PlaceEventYoga
-        public int PlaceEventYogaId { get; set; }
-
-       // public PlaceEventYoga PlaceEventYoga { get; set; } = null!;
-
-        // Navigation vers les réservations (relation many-to-many via Reservation)
-       // public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
+        // Relations : 
+        // many to many avec User
+        // H -> GroupSession, IndividualSession, SpecialEvent
+        // many to one - FK ds Event poitant vers PlaceEventYoga
     }
 }

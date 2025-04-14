@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetYoga.Domain.Entities
 {
-    public class GroupSession
+    public class GroupSession : Event
     {
         public int Id { get; set; }
         public string DaysAndHours { get; set; } = null!;

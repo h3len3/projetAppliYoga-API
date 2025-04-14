@@ -4,6 +4,7 @@ using ProjetYoga.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,12 +15,6 @@ namespace ProjetYoga.Infrastructure.Configs
         public void Configure(EntityTypeBuilder<GroupSession> builder)
         {
             builder.ToTable("GroupSession");
-
-            builder.HasKey(g => g.Id);
-
-            builder.Property(g => g.Id)
-                .IsRequired()
-                .ValueGeneratedOnAdd();
 
             builder.Property(g => g.DaysAndHours)
                 .IsRequired()
@@ -35,10 +30,10 @@ namespace ProjetYoga.Infrastructure.Configs
                 .IsRequired();
 
             // Relation vers TypeSub
-            builder.HasOne(g => g.TypeSub)
-                .WithMany(t => t.GroupSessions)
-                .HasForeignKey(g => g.Id_TypeSub)
-                .OnDelete(DeleteBehavior.Cascade);  // ou autre ;à voir plus tard
+           // builder.HasOne(g => g.TypeSub)
+                //.WithMany(t => t.GroupSessions)
+               // .HasForeignKey(g => g.Id_TypeSub)
+               // .OnDelete(DeleteBehavior.Cascade);  // ou autre ;à voir plus tard
         }
     }
 }

@@ -10,12 +10,14 @@ namespace ProjetYoga.Domain.Entities
     {
         public int Id { get; set; }
 
-        public string Email { get; set; } = string.Empty;
+        public string Email { get; set; } 
 
-        public string PasswordHash { get; set; } = string.Empty;
+        public string Password { get; set; } 
 
-        public string Salt { get; set; } = string.Empty;
-
-        // public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
+        
+        // relations à faire : 
+        // H -> Adept et Instructor
+        // Many to many avec TypeSub
+        // Many to many avec Event 
     }
 }
