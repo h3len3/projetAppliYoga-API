@@ -15,9 +15,9 @@ namespace ProjetYoga.Infrastructure.Configs
         {
             builder.ToTable("User");
 
-            builder.HasKey(u => u.Id);
+            builder.HasKey(u => u.Id_User);
 
-            builder.Property(u => u.Id)
+            builder.Property(u => u.Id_User)
                    .IsRequired()
                    .ValueGeneratedOnAdd();
 

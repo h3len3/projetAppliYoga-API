@@ -13,31 +13,27 @@ namespace ProjetYoga.Infrastructure.Configs
     {
         public void Configure(EntityTypeBuilder<Adept> builder)
         {
-            // Configurations de la table Adept
+            // Nom de la table
+            builder.ToTable("Adept");
+
+            // NameAdept : string, non nullable, taille min et max
             builder.Property(a => a.NameAdept)
-                   .IsRequired()
-                   .HasMaxLength(100);
-            //HasMinLength(2) via validation
+                .IsRequired()
+                .HasMaxLength(100);
+            //.HasMinLength(2);  
 
+            // LastNameAdept : string, non nullable, taille min et max
             builder.Property(a => a.LastnameAdept)
-                   .IsRequired()
-                   .HasMaxLength(100);
-            // HasMinLength(2)via validation
+                .IsRequired()
+                .HasMaxLength(100);
+                //.HasMinLength(2);
 
+            // NissAdept : string, non nullable, format NISS
             builder.Property(a => a.NissAdept)
-                   .IsRequired()
-                   .HasMaxLength(20);
-            // HasMinLength(11) via validation
+                .IsRequired()
+                .HasMaxLength(11)  // le NISS est souvent de 11 chiffres
+                .IsFixedLength();
 
-            // Créer un index unique sur le NissAdept
-            builder.HasIndex(a => a.NissAdept)
-                   .IsUnique();  // Cela garantit l'unicité dans la base de données
-
-            // Lien avec la table Adresse (clé étrangère)
-            builder.HasOne(a => a.Address)
-                   .WithMany(ad => ad.Adepts)  // L'adresse peut être liée à plusieurs adeptes
-                   .HasForeignKey(a => a.AddressId)
-                   .OnDelete(DeleteBehavior.Cascade);  //  suppression en cascade
         }
     }
 }

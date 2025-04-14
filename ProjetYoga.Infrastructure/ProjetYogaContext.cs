@@ -15,6 +15,7 @@ namespace ProjetYoga.Infrastructure
         public DbSet<Event> Events { get; set; }
         public DbSet<TypeSub> TypeSubs { get; set; }
         public DbSet<PlaceEventYoga> PlaceEventYogas { get; set; }
+        public DbSet<Adept> Adepts { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -23,6 +24,7 @@ namespace ProjetYoga.Infrastructure
             modelBuilder.ApplyConfiguration(new EventConfig());
             modelBuilder.ApplyConfiguration(new TypeSubConfig());
             modelBuilder.ApplyConfiguration(new PlaceEventYogaConfig());
+            modelBuilder.ApplyConfiguration(new AdeptConfig());
 
         }
 
