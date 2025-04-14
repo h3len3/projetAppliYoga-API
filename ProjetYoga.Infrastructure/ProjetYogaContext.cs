@@ -21,6 +21,7 @@ namespace ProjetYoga.Infrastructure
         public DbSet<IndividualSession> IndividualSessions { get; set; }
         public DbSet<SpecialEvent> SpecialEvents { get; set; }
 
+        public DbSet<Address> Addresses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -33,6 +34,8 @@ namespace ProjetYoga.Infrastructure
             modelBuilder.ApplyConfiguration(new GroupSessionConfig());
             modelBuilder.ApplyConfiguration(new IndividualSessionConfig());
             modelBuilder.ApplyConfiguration(new SpecialEventConfig());
+            modelBuilder.ApplyConfiguration(new AddressConfig());
+
 
         }
 

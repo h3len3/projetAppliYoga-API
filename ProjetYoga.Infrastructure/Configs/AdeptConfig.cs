@@ -34,6 +34,12 @@ namespace ProjetYoga.Infrastructure.Configs
                 .HasMaxLength(11)  // le NISS est souvent de 11 chiffres
                 .IsFixedLength();
 
+            // Relation avec Address - One-to-many : 
+            builder.HasOne(a => a.Address)
+                .WithMany(ad => ad.Adepts)
+                .HasForeignKey(a => a.AddressId)
+                .OnDelete(DeleteBehavior.Restrict); // ou Cascade, changer plus tard
+
         }
     }
 }

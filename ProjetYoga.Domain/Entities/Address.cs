@@ -9,25 +9,22 @@ namespace ProjetYoga.Domain.Entities
 {
     public class Address
     {
-        public int Id { get; set; }
+        public int Id_Address { get; set; }
 
-        [Required]
-        [StringLength(200)]
-        public string Street { get; set; } = string.Empty;
+        public string Street { get; set; }
+        public int NumberStreet { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string City { get; set; } = string.Empty;
+        public string City { get; set; } 
+        public string PostalCode { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string PostalCode { get; set; } = string.Empty;
+        public string Country { get; set; }
 
-        [Required]
-        [StringLength(100)]
-        public string Country { get; set; } = string.Empty;
+        // Relations : 
 
-        // Relation avec Adepts (un à plusieurs)
-        public ICollection<Adept> Adepts { get; set; } = new List<Adept>(); 
+        // avec Adept (One-to-many) : 
+        public ICollection<Adept> Adepts { get; set; }
+       // public ICollection<Adept> Adepts { get; set; } = new List<Adept>(); 
+
+        // avec PlaceEventYoga 
     }
 }

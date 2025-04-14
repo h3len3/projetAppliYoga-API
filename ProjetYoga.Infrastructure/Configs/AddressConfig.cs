@@ -13,23 +13,40 @@ namespace ProjetYoga.Infrastructure.Configs
     {
         public void Configure(EntityTypeBuilder<Address> builder)
         {
+            builder.ToTable("Address");
+
+            builder.HasKey(t => t.Id_Address);
+
+            builder.Property(t => t.Id_Address)
+                .IsRequired()
+                .ValueGeneratedOnAdd(); // auto-incrémentation
+
+
             builder.Property(a => a.Street)
                 .IsRequired()
                 .HasMaxLength(200);
 
-            builder.Property(a => a.City)
-                   .IsRequired()
-                   .HasMaxLength(100);
+            builder.Property(ad => ad.NumberStreet)
+                 .IsRequired()
+                 .HasMaxLength(50);
 
             builder.Property(a => a.PostalCode)
-                   .IsRequired()
-                   .HasMaxLength(100);
+                  .IsRequired()
+                  .HasMaxLength(100);
+
+            builder.Property(a => a.City)
+                  .IsRequired()
+                  .HasMaxLength(100);
+
+            builder.Property(a => a.PostalCode)
+                  .IsRequired()
+                  .HasMaxLength(100);
 
             builder.Property(a => a.Country)
-                   .IsRequired()
-                   .HasMaxLength(100);
+                  .IsRequired()
+                  .HasMaxLength(100);
 
-           
+
         }
     }
 }
