@@ -12,8 +12,12 @@ namespace ProjetYoga.Domain.Entities
         public int id_PlaceEventYoga { get; set; }
         public string namePlaceEventYoga { get; set; }
 
-        // relations : 
-        // avec Event : one to many - FK ds Event poitant vers PlaceEventYoga
-        // avec address : one to one 
+        // Relations : 
+        // avec address : one to one : 
+        public int Id_Address { get; set; }
+        public Address Address { get; set; }
+
+        // avec Event : one to many - FK ds Event poitant vers PlaceEventYoga:
+
     }
 }

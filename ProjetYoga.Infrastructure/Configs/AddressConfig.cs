@@ -46,6 +46,13 @@ namespace ProjetYoga.Infrastructure.Configs
                   .IsRequired()
                   .HasMaxLength(100);
 
+            // Relations : 
+            // PlaceEventYoga - One-to-one : 
+            builder.HasOne(ad => ad.PlaceEventYoga)
+                    .WithOne(pey => pey.Address)
+                    .HasForeignKey<PlaceEventYoga>(pey => pey.Id_Address)
+                    .OnDelete(DeleteBehavior.Restrict); // ou Cascade, à changer plus tard
+
 
         }
     }

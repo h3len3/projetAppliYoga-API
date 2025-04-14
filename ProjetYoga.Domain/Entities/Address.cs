@@ -23,8 +23,9 @@ namespace ProjetYoga.Domain.Entities
 
         // avec Adept (One-to-many) : 
         public ICollection<Adept> Adepts { get; set; }
-       // public ICollection<Adept> Adepts { get; set; } = new List<Adept>(); 
+        // public ICollection<Adept> Adepts { get; set; } = new List<Adept>(); 
 
-        // avec PlaceEventYoga 
+        // avec PlaceEventYoga  (One-to-one) : 
+        public PlaceEventYoga PlaceEventYoga { get; set; } // 1:1
     }
 }
