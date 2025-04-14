@@ -23,6 +23,9 @@ namespace ProjetYoga.Infrastructure
 
         public DbSet<Address> Addresses { get; set; }
 
+        public DbSet<Reservation> Reservations { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new UserConfig());
@@ -35,10 +38,10 @@ namespace ProjetYoga.Infrastructure
             modelBuilder.ApplyConfiguration(new IndividualSessionConfig());
             modelBuilder.ApplyConfiguration(new SpecialEventConfig());
             modelBuilder.ApplyConfiguration(new AddressConfig());
-
+            modelBuilder.ApplyConfiguration(new ReservationConfig());
 
         }
 
-        
+
     }
 }

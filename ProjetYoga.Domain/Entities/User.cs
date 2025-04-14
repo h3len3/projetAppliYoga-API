@@ -12,12 +12,17 @@ namespace ProjetYoga.Domain.Entities
 
         public string Email { get; set; } 
 
-        public string Password { get; set; } 
+        public string Password { get; set; }
 
-        
-        // relations à faire : 
-        // H -> Adept et Instructor
+
+        // Relations : 
+
+        // H -> Adept et Instructor : fait 
+
+        // Many to many avec Event : 
+        public ICollection<Reservation> Reservations { get; set; }
+
         // Many to many avec TypeSub
-        // Many to many avec Event 
+
     }
 }

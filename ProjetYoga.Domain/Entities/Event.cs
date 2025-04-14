@@ -25,8 +25,12 @@ namespace ProjetYoga.Domain.Entities
         public bool Available { get; set; }
 
         // Relations : 
-        // many to many avec User
-        // H -> GroupSession, IndividualSession, SpecialEvent
+
+        // H -> GroupSession, IndividualSession, SpecialEvent  : Fait
+
+        // many to many avec User:
+        public ICollection<Reservation> Reservations { get; set; }
+        
         // many to one - FK ds Event poitant vers PlaceEventYoga
     }
 }
