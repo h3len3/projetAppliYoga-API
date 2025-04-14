@@ -16,8 +16,8 @@ namespace ProjetYoga.Infrastructure.Configs
             builder.ToTable("Event");
 
             // Clé primaire avec auto-incrément
-            builder.HasKey(e => e.Id);
-            builder.Property(e => e.Id)
+            builder.HasKey(e => e.Id_Event);
+            builder.Property(e => e.Id_Event)
                    .IsRequired()
                    .ValueGeneratedOnAdd();
 

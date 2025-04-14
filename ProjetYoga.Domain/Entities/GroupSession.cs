@@ -8,15 +8,11 @@ namespace ProjetYoga.Domain.Entities
 {
     public class GroupSession : Event
     {
-        public int Id { get; set; }
         public string DaysAndHours { get; set; } = null!;
-        public DateTime StartDateGroupSession { get; set; }
-        public DateTime EndDateGroupSession { get; set; }
 
-        // Clé étrangère
-        public int Id_TypeSub { get; set; }
 
-        // Navigation vers TypeSub
-        public TypeSub TypeSub { get; set; } = null!;
+        // Relation : 
+        // héritage (enfant de User)
+        // avec TypeSub : One to many - FK ds GroupSession
     }
 }

@@ -16,6 +16,9 @@ namespace ProjetYoga.Infrastructure
         public DbSet<TypeSub> TypeSubs { get; set; }
         public DbSet<PlaceEventYoga> PlaceEventYogas { get; set; }
         public DbSet<Adept> Adepts { get; set; }
+        public DbSet<Instructor> Instructors { get; set; }
+        public DbSet<GroupSession> GroupSessions { get; set; }
+        public DbSet<IndividualSession> IndividualSessions { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,6 +28,9 @@ namespace ProjetYoga.Infrastructure
             modelBuilder.ApplyConfiguration(new TypeSubConfig());
             modelBuilder.ApplyConfiguration(new PlaceEventYogaConfig());
             modelBuilder.ApplyConfiguration(new AdeptConfig());
+            modelBuilder.ApplyConfiguration(new InstructorConfig());
+            modelBuilder.ApplyConfiguration(new GroupSessionConfig());
+            modelBuilder.ApplyConfiguration(new IndividualSessionConfig());
 
         }
 

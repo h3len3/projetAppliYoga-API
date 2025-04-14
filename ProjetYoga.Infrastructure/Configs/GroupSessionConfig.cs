@@ -20,20 +20,6 @@ namespace ProjetYoga.Infrastructure.Configs
                 .IsRequired()
                 .HasMaxLength(100);
 
-            builder.Property(g => g.StartDateGroupSession)
-                .IsRequired();
-
-            builder.Property(g => g.EndDateGroupSession)
-                .IsRequired();
-
-            builder.Property(g => g.Id_TypeSub)
-                .IsRequired();
-
-            // Relation vers TypeSub
-           // builder.HasOne(g => g.TypeSub)
-                //.WithMany(t => t.GroupSessions)
-               // .HasForeignKey(g => g.Id_TypeSub)
-               // .OnDelete(DeleteBehavior.Cascade);  // ou autre ;à voir plus tard
         }
     }
 }

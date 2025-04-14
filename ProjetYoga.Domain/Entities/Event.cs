@@ -8,7 +8,7 @@ namespace ProjetYoga.Domain.Entities
 {
     public class Event
     {
-        public int Id { get; set; }
+        public int Id_Event { get; set; }
 
         public string Title { get; set; }
 

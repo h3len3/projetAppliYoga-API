@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace ProjetYoga.Domain.Entities
 {
-    public class Instructor
+    public class Instructor : User
     {
-        [Required]
-        [StringLength(50, MinimumLength = 3)]
         public string Nickname { get; set; } = "Instructor";  // Valeur par défaut "Instructor"
     }
 }
