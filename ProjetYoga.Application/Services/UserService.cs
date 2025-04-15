@@ -20,6 +20,11 @@ namespace ProjetYoga.Application.Services
             }
             // vérifier règles mot de passe
             //insérer ce user
+            userRepository.Add(new Domain.Entities.User
+            {
+                Email = dto.email,
+                Password = dto.password
+            });
             // envoyer un mail à ce user
         }
     }
