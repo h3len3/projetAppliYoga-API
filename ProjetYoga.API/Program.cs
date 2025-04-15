@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProjetYoga.Application.Interfaces.Repositories;
+using ProjetYoga.Application.Interfaces.Services;
+using ProjetYoga.Application.Services;
 using ProjetYoga.Infrastructure;
 using ProjetYoga.Infrastructure.Repositories;
 
@@ -17,6 +19,8 @@ builder.Services.AddDbContext<ProjetYogaContext>(
     o => o.UseSqlServer(builder.Configuration.GetConnectionString("Main"))
 );
 
+builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 //
 
