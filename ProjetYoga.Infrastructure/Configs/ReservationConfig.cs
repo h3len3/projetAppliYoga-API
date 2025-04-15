@@ -20,10 +20,6 @@ namespace ProjetYoga.Infrastructure.Configs
             builder.Property(r => r.DateReservation)
                 .IsRequired();
 
-            builder.Property(r => r.PaymentMode)
-                .IsRequired()
-                .HasMaxLength(50);
-
             builder.Property(r => r.Payed)
                 .IsRequired();
 

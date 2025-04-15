@@ -17,14 +17,14 @@ namespace ProjetYoga.Infrastructure.Configs
             builder.ToTable("PlaceEventYoga");
 
             // Clé primaire
-            builder.HasKey(p => p.id_PlaceEventYoga);
+            builder.HasKey(p => p.Id_PlaceEventYoga);
 
             // Auto-incrémentée
-            builder.Property(p => p.id_PlaceEventYoga)
+            builder.Property(p => p.Id_PlaceEventYoga)
                    .ValueGeneratedOnAdd();
 
             // namePlaceEventYoga requis
-            builder.Property(p => p.namePlaceEventYoga)
+            builder.Property(p => p.NamePlaceEventYoga)
                    .IsRequired()
                    .HasMaxLength(100);
 

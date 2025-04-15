@@ -17,7 +17,7 @@ namespace ProjetYoga.Domain.Entities
 
         // Relations : 
         // many to many : avec User : 
-        public ICollection<UserTypeSub> UserTypeSubs { get; set; }
+        public ICollection<User_TypeSub> User_TypeSubs { get; set; }
         // one to many avec GroupSession - FK ds GroupSession
     }
 

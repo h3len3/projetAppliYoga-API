@@ -9,8 +9,8 @@ namespace ProjetYoga.Domain.Entities
 {
     public class PlaceEventYoga
     {
-        public int id_PlaceEventYoga { get; set; }
-        public string namePlaceEventYoga { get; set; }
+        public int Id_PlaceEventYoga { get; set; }
+        public string NamePlaceEventYoga { get; set; }
 
         // Relations : 
         // avec address : one to one : 

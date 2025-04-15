@@ -14,7 +14,6 @@
     <Folder Include="DTO\" />
     <Folder Include="Exceptions\" />
     <Folder Include="Validators\" />
-    <Folder Include="Utils\" />
     <Folder Include="Services\" />
   </ItemGroup>
 

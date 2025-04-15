@@ -20,9 +20,6 @@ namespace ProjetYoga.Infrastructure.Configs
             builder.Property(uts => uts.DateSub)
                 .IsRequired();
 
-            builder.Property(uts => uts.PaymentMode)
-                .IsRequired();
-
             builder.Property(uts => uts.Payed)
                 .IsRequired();
 
@@ -33,6 +30,13 @@ namespace ProjetYoga.Infrastructure.Configs
             builder.HasOne(uts => uts.TypeSub)
                 .WithMany(ts => ts.User_TypeSubs)
                 .HasForeignKey(uts => uts.Id_TypeSub);
+
+            // relation avec PaymentMode : 
+
+            builder.HasOne(uts => uts.PaymentMode)
+                .WithMany(pm => pm.User_TypeSubs)
+                .HasForeignKey(uts => uts.Id_PaymentMode)
+                .IsRequired();
         }
     }
 }
