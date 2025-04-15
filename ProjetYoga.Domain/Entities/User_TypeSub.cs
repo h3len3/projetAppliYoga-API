@@ -15,8 +15,13 @@ namespace ProjetYoga.Domain.Entities
         public TypeSub TypeSub { get; set; }
 
         public DateTime DateSub { get; set; }
-        public string PaymentMode { get; set; }
         public bool Payed { get; set; }
+
+        // Relation avec PaymentMode (one-to-many) - FK : 
+        public int Id_PaymentMode { get; set; }
+        public PaymentMode PaymentMode { get; set; }
     }
+
+    
 
 }

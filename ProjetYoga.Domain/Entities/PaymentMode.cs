@@ -12,5 +12,7 @@ namespace ProjetYoga.Domain.Entities
         public string Name_PaymentMode { get; set; }
 
         public ICollection<Reservation> Reservations { get; set; }
+
+        public ICollection<User_TypeSub> User_TypeSubs { get; set; }
     }
 }
