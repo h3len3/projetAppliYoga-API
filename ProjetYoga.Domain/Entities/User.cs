@@ -8,11 +8,11 @@ namespace ProjetYoga.Domain.Entities
 {
     public class User
     {
-        public int Id_User { get; set; }
+        public int Id_User { get; set; } 
 
-        public string Email { get; set; } 
+        public string Email { get; set; } = null!;
 
-        public string Password { get; set; }
+        public string Password { get; set; } = null!;
 
 
         // Relations : 
@@ -23,7 +23,7 @@ namespace ProjetYoga.Domain.Entities
         public ICollection<Reservation> Reservations { get; set; }
 
         // Many to many avec TypeSub : 
-        public ICollection<User_TypeSub> UserTypeSubs { get; set; }
+        public ICollection<User_TypeSub> User_TypeSubs { get; set; }
 
     }
 }

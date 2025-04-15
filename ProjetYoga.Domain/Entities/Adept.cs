@@ -9,11 +9,11 @@ namespace ProjetYoga.Domain.Entities
 {
     public class Adept : User
     {    
-        public string NameAdept { get; set; } 
-    
+        public string NameAdept { get; set; } = null!;
+
         public string LastnameAdept { get; set; } = null!;
-        public string NissAdept { get; set; } 
-        public string PhoneAdept { get; set; }
+        public string NissAdept { get; set; } = null!;
+        public string PhoneAdept { get; set; } = null!;
 
         // Relations :
         // - enfant de User : fait (:User + pas de id)
