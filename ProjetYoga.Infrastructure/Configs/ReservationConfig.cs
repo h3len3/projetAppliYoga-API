@@ -38,6 +38,12 @@ namespace ProjetYoga.Infrastructure.Configs
             builder.HasOne(r => r.Event)
                 .WithMany(e => e.Reservations)
                 .HasForeignKey(r => r.Id_Event);
+
+ // Relation avec PaymentMode (one-to-many)
+            builder.HasOne(r => r.PaymentMode)
+                        .WithMany(pm => pm.Reservations)
+                        .HasForeignKey(r => r.PaymentModeId)
+                        .IsRequired();
         }
     }
 }

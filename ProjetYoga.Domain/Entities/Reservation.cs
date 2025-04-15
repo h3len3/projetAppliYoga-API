@@ -15,7 +15,11 @@ namespace ProjetYoga.Domain.Entities
         public Event Event { get; set; }
 
         public DateTime DateReservation { get; set; }
-        public string PaymentMode { get; set; }
+
+        //Relation avec PaymentMode
+        public int PaymentModeId { get; set; }
+        public PaymentMode PaymentMode { get; set; }
+        //
         public bool Payed { get; set; }
     }
 }
