@@ -19,5 +19,7 @@ namespace ProjetYoga.Domain.Entities
 
         // avec Event : one to many - FK ds Event poitant vers PlaceEventYoga:
 
+        public ICollection<Event> Events { get; set; }
+
     }
 }

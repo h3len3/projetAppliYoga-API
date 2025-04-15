@@ -52,7 +52,13 @@ namespace ProjetYoga.Infrastructure.Configs
             // Available : requis
             builder.Property(e => e.Available)
                    .IsRequired();
-      
+
+            // Relation avec PlaceEventYooga (one-to-many) : 
+            builder.HasOne(e => e.PlaceEventYoga)
+                .WithMany(p => p.Events)
+                .HasForeignKey(e => e.Id_PlaceEventYoga)
+                .IsRequired();
+
         }
 
     }

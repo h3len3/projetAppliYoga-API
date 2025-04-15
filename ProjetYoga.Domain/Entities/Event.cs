@@ -30,7 +30,9 @@ namespace ProjetYoga.Domain.Entities
 
         // many to many avec User:
         public ICollection<Reservation> Reservations { get; set; }
-        
-        // many to one - FK ds Event poitant vers PlaceEventYoga
+
+        // many to one - FK ds Event poitant vers PlaceEventYoga:
+        public int Id_PlaceEventYoga { get; set; }
+        public PlaceEventYoga PlaceEventYoga { get; set; }
     }
 }
