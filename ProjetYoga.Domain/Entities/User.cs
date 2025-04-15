@@ -22,7 +22,8 @@ namespace ProjetYoga.Domain.Entities
         // Many to many avec Event : 
         public ICollection<Reservation> Reservations { get; set; }
 
-        // Many to many avec TypeSub
+        // Many to many avec TypeSub : 
+        public ICollection<User_TypeSub> UserTypeSubs { get; set; }
 
     }
 }

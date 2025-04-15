@@ -26,9 +26,14 @@ namespace ProjetYoga.Infrastructure.Configs
             // namePlaceEventYoga requis
             builder.Property(p => p.namePlaceEventYoga)
                    .IsRequired()
-                   .HasMaxLength(100); 
+                   .HasMaxLength(100);
 
-           
+            // Relations : 
+            // Address - One-to-one : 
+            builder.HasOne(p => p.Address)
+                .WithOne(ad => ad.PlaceEventYoga)
+                .HasForeignKey<PlaceEventYoga>(p => p.Id_Address);
+
         }
 
     }

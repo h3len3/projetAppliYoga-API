@@ -37,7 +37,7 @@ namespace ProjetYoga.Infrastructure.Configs
             // Relation avec Address - One-to-many : 
             builder.HasOne(a => a.Address)
                 .WithMany(ad => ad.Adepts)
-                .HasForeignKey(a => a.AddressId)
+                .HasForeignKey(a => a.Id_Address)
                 .OnDelete(DeleteBehavior.Restrict); // ou Cascade, changer plus tard
 
         }
