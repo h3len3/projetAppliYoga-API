@@ -1,0 +1,13 @@
+﻿using Be.Khunly.EFRepository.Abstraction;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ProjetYoga.Application.Interfaces.Repositories
+{
+    public interface IUserRepository: IRepositoryBase<User>
+    {
+    }
+}
