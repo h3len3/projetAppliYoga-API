@@ -31,6 +31,8 @@ namespace ProjetYoga.Infrastructure.Configs
             builder.Property(u => u.Password)
                    .IsRequired();
 
+            builder.HasIndex(u => u.Salt).IsUnique();
+
         }
     }
 }

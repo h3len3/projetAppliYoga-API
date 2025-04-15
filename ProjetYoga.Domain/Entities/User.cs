@@ -13,6 +13,7 @@ namespace ProjetYoga.Domain.Entities
         public string Email { get; set; } = null!;
 
         public string Password { get; set; } = null!;
+        public Guid Salt { get; set; }
 
 
         // Relations : 
