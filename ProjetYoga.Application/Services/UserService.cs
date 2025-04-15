@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ProjetYoga.Application.Services
 {
-    public class UserService(IUserRepository userRepository)
+    public class UserService(IUserRepository userRepository): IUserService
     {
         public User Register(UserRegisterDTO dto)
         {

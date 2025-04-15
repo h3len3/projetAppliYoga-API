@@ -1,4 +1,5 @@
 ﻿using Be.Khunly.EFRepository;
+using ProjetYoga.Application.Interfaces.Repositories;
 using ProjetYoga.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 namespace ProjetYoga.Infrastructure.Repositories
 {
     public class UserRepository(ProjetYogaContext context)
-        : RepositoryBase<User>(context)
+        : RepositoryBase<User>(context), IUserRepository
     {
     }
 }
