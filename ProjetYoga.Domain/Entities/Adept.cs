@@ -14,6 +14,7 @@ namespace ProjetYoga.Domain.Entities
         public string LastnameAdept { get; set; } = null!;
         public string NissAdept { get; set; } = null!;
         public string PhoneAdept { get; set; } = null!;
+        public DateTime BirthDate { get; set; }
 
         // Relations :
         // - enfant de User : fait (:User + pas de id)

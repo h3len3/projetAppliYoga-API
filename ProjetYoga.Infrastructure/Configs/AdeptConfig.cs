@@ -34,6 +34,11 @@ namespace ProjetYoga.Infrastructure.Configs
                 .HasMaxLength(11)  // le NISS est souvent de 11 chiffres
                 .IsFixedLength();
 
+            // BithDate : 
+            builder.Property(a => a.BirthDate)
+                .IsRequired();
+
+
             // Relation avec Address - One-to-many : 
             builder.HasOne(a => a.Address)
                 .WithMany(ad => ad.Adepts)
