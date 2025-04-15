@@ -1,6 +1,8 @@
 ﻿using ProjetYoga.Application.DTO;
 using ProjetYoga.Application.Exceptions;
+using ProjetYoga.Application.Interfaces;
 using ProjetYoga.Application.Interfaces.Repositories;
+using ProjetYoga.Application.Interfaces.Services;
 using ProjetYoga.Application.Utils;
 using ProjetYoga.Domain.Entities;
 using System;
@@ -13,7 +15,7 @@ namespace ProjetYoga.Application.Services
 {
     public class UserService(IUserRepository userRepository)
     {
-        public UserService Register(UserRegisterDTO dto)
+        public User Register(UserRegisterDTO dto)
         {
             // vérifier email unique
             if (userRepository.Any(u=>u.Email==dto.email))
@@ -27,7 +29,7 @@ namespace ProjetYoga.Application.Services
             string hashedPassword = PasswordUtils.HashPassword(dto.password, salt);
             
             //insérer ce user
-            User u = userRepository.Add(new Domain.Entities.User
+            User u = userRepository.Add(new User
             {
                 Email = dto.email,
                 Password = hashedPassword,
@@ -35,7 +37,7 @@ namespace ProjetYoga.Application.Services
             });
             // envoyer un mail à ce user
 
-            return u ;
+            return u; 
         }
     }
 }
