@@ -5,6 +5,7 @@ using ProjetYoga.Application.Exceptions;
 using ProjetYoga.Application.Interfaces.Services;
 using ProjetYoga.Application.Services;
 using ProjetYoga.Domain.Entities;
+using System.Net.Mail;
 
 namespace ProjetYoga.API.Controllers
 {
@@ -18,12 +19,16 @@ namespace ProjetYoga.API.Controllers
             try
             {
                 User u = userService.Register(dto);
-                return Created("user/" + u.Id_User, u);
+                return Created("user/" + u.Id_User, new RegisterUserResultDTO(u));
 
             }
             catch (DuplicatePropertyException ex) 
             {
                 return Conflict(ex.Message);
+            }
+            catch (SmtpException)
+            {
+                return Problem("L'email n'a pas pu être envoyé");
             }
 
         }
