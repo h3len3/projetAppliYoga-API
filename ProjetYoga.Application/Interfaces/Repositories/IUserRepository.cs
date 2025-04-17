@@ -1,4 +1,5 @@
 ﻿using Be.Khunly.EFRepository.Abstraction;
+using ProjetYoga.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

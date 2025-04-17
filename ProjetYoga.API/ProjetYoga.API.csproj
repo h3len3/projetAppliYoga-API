@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
@@ -21,10 +21,6 @@
     <ProjectReference Include="..\ProjetYoga.Application\ProjetYoga.Application.csproj" />
     <ProjectReference Include="..\ProjetYoga.Domain\ProjetYoga.Domain.csproj" />
     <ProjectReference Include="..\ProjetYoga.Infrastructure\ProjetYoga.Infrastructure.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 </Project>
