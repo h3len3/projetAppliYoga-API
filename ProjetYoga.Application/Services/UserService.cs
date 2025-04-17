@@ -10,10 +10,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Transactions;
 
 namespace ProjetYoga.Application.Services
 {
-    public class UserService(IUserRepository userRepository): IUserService
+    public class UserService(IUserRepository userRepository, IMailer mailer): IUserService
     {
         public User Register(UserRegisterDTO dto)
         {
@@ -27,7 +28,9 @@ namespace ProjetYoga.Application.Services
             // Traitement mdp : 
             Guid salt = Guid.NewGuid();
             string hashedPassword = PasswordUtils.HashPassword(dto.password, salt);
-            
+
+            // Transaction (using ci-dessous + en fin transactionScope.Complete();)
+            using TransactionScope transactionScope = new(); 
             //insérer ce user
             User u = userRepository.Add(new User
             {
@@ -36,6 +39,9 @@ namespace ProjetYoga.Application.Services
                 Salt = salt
             });
             // envoyer un mail à ce user
+            mailer.Send(u.Email, "Compte créé", $"Bienvenue, par ce mail nous vous confirmons que votre compte a été créé");
+            transactionScope.Complete();
+
 
             return u; 
         }
