@@ -1,9 +1,13 @@
 using Microsoft.EntityFrameworkCore;
+using ProjetYoga.Application.Interfaces;
 using ProjetYoga.Application.Interfaces.Repositories;
 using ProjetYoga.Application.Interfaces.Services;
 using ProjetYoga.Application.Services;
 using ProjetYoga.Infrastructure;
 using ProjetYoga.Infrastructure.Repositories;
+using ProjetYoga.Infrastructure.Smtp;
+using System.Net.Mail;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -22,6 +26,21 @@ builder.Services.AddDbContext<ProjetYogaContext>(
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
+//
+
+// Pour envoi de mails
+builder.Services.AddScoped(c => new SmtpClient
+{
+    Host = builder.Configuration["Smtp:Host"] ?? throw new Exception("Missing Smtp Configuration"),
+    Port = int.Parse(builder.Configuration["Smtp:Port"] ?? throw new Exception("Missing Smtp Configuration")),
+    Credentials = new NetworkCredential
+    {
+        UserName = builder.Configuration["Smtp:Username"] ?? throw new Exception("Missing Smtp Configuration"),
+        Password = builder.Configuration["Smtp:Password"] ?? throw new Exception("Missing Smtp Configuration"),
+    }
+
+});
+builder.Services.AddScoped<IMailer, Mailer>();
 //
 
 var app = builder.Build();
