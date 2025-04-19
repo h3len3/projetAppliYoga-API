@@ -32,8 +32,10 @@ builder.Services.AddScoped<IAdeptService, AdeptService>();
 builder.Services.AddScoped<IAddressRepository, AddressRepository>();
 builder.Services.AddScoped<IPlaceEventYogaService, PlaceEventYogaService>();
 builder.Services.AddScoped<IPlaceEventYogaRepository, PlaceEventYogaRepository>();
-builder.Services.AddScoped<ITypeSubRepository,TypeSubRepository>();
+builder.Services.AddScoped<ITypeSubRepository, TypeSubRepository>();
 builder.Services.AddScoped<ITypeSubService, TypeSubService>();
+builder.Services.AddScoped<IPaymentModeRepository, PaymentModeRepository>();
+builder.Services.AddScoped<IPaymentModeService, PaymentModeService>();
 //
 
 // Pour envoi de mails
