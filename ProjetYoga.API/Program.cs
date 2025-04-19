@@ -27,6 +27,8 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
 builder.Services.AddScoped<IEventService, EventService>();
+builder.Services.AddScoped<IAdeptRepository, AdeptRepository>();
+builder.Services.AddScoped<IAdeptService, AdeptService>();
 //
 
 // Pour envoi de mails
