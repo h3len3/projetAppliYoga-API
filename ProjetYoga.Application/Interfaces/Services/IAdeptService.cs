@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ProjetYoga.Application.Interfaces.Services
 {
-    public interface IEventService
+    public interface IAdeptService
     {
-        Event Register(CreateEventDTO dTO);
+        Adept Register(CreateAdeptDTO dTO);
     }
 }
