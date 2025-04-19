@@ -21,7 +21,7 @@ namespace ProjetYoga.API.Controllers
             catch (Exception)
             {
 
-                throw;
+                return BadRequest();
             }
         }
     }
