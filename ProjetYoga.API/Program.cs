@@ -26,6 +26,7 @@ builder.Services.AddDbContext<ProjetYogaContext>(
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IEventRepository, EventRepository>();
+builder.Services.AddScoped<IEventService, EventService>();
 //
 
 // Pour envoi de mails

@@ -11,5 +11,6 @@ namespace ProjetYoga.Infrastructure.Repositories
 {
     public class EventRepository(ProjetYogaContext context): RepositoryBase<Event>(context), IEventRepository
     {
+
     }
 }
