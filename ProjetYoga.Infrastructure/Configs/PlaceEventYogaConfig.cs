@@ -34,6 +34,15 @@ namespace ProjetYoga.Infrastructure.Configs
                 .WithOne(ad => ad.PlaceEventYoga)
                 .HasForeignKey<PlaceEventYoga>(p => p.Id_Address);
 
+            // data 
+            builder.HasData([
+                new PlaceEventYoga {
+                    Id_PlaceEventYoga = 1,
+                    NamePlaceEventYoga = "Studio du Parc Antoine",
+                    Id_Address = 1
+                }
+            ]);
+
         }
 
     }

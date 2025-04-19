@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using ProjetYoga.Application.Utils;
 using ProjetYoga.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -59,7 +60,23 @@ namespace ProjetYoga.Infrastructure.Configs
                 .HasForeignKey(e => e.Id_PlaceEventYoga)
                 .IsRequired();
 
+            // data 
+            builder.HasData([
+                new Event {
+                    Id_Event = 1,
+                    Title= "matinée viniyoga",
+                    Description = "chants, postures, méditation",
+                    StartDate = new DateTime(2025, 5, 10, 9, 0, 0),
+                    EndDate = new DateTime(2025, 5, 10, 17, 0, 0),
+                    MaxSub = 15,
+                    MinSub = 3,
+                    Available = true,
+                    Id_PlaceEventYoga = 1
+                }
+            ]);
+
         }
 
     }
 }
+

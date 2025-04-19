@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetYoga.Infrastructure;
 
@@ -11,9 +12,11 @@ using ProjetYoga.Infrastructure;
 namespace ProjetYoga.Infrastructure.Migrations
 {
     [DbContext(typeof(ProjetYogaContext))]
-    partial class ProjetYogaContextModelSnapshot : ModelSnapshot
+    [Migration("20250419080746_datas")]
+    partial class datas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,6 +116,20 @@ namespace ProjetYoga.Infrastructure.Migrations
                     b.ToTable("Event", (string)null);
 
                     b.UseTptMappingStrategy();
+
+                    b.HasData(
+                        new
+                        {
+                            Id_Event = 1,
+                            Available = true,
+                            Description = "Chants, postures, méditation",
+                            EndDate = new DateTime(2025, 5, 10, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id_PlaceEventYoga = 1,
+                            MaxSub = 15,
+                            MinSub = 3,
+                            StartDate = new DateTime(2025, 5, 10, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Matinée Viniyoga"
+                        });
                 });
 
             modelBuilder.Entity("ProjetYoga.Domain.Entities.PaymentMode", b =>
@@ -155,6 +172,14 @@ namespace ProjetYoga.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("PlaceEventYoga", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id_PlaceEventYoga = 1,
+                            Id_Address = 1,
+                            NamePlaceEventYoga = "Studio du parc Antoine"
+                        });
                 });
 
             modelBuilder.Entity("ProjetYoga.Domain.Entities.Reservation", b =>

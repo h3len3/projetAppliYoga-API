@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetYoga.Infrastructure;
 
@@ -11,9 +12,11 @@ using ProjetYoga.Infrastructure;
 namespace ProjetYoga.Infrastructure.Migrations
 {
     [DbContext(typeof(ProjetYogaContext))]
-    partial class ProjetYogaContextModelSnapshot : ModelSnapshot
+    [Migration("20250419081005_addData")]
+    partial class addData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -155,6 +158,14 @@ namespace ProjetYoga.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("PlaceEventYoga", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id_PlaceEventYoga = 1,
+                            Id_Address = 1,
+                            NamePlaceEventYoga = "Studio du parc Antoine"
+                        });
                 });
 
             modelBuilder.Entity("ProjetYoga.Domain.Entities.Reservation", b =>

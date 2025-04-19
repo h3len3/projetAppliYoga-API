@@ -53,6 +53,18 @@ namespace ProjetYoga.Infrastructure.Configs
                     .HasForeignKey<PlaceEventYoga>(pey => pey.Id_Address)
                     .OnDelete(DeleteBehavior.Restrict); // ou Cascade, à changer plus tard
 
+            // data
+            builder.HasData([
+                new Address {
+                    Id_Address = 1,
+                    Street = "Rue du parc Saint-Antoine",
+                    NumberStreet = 123,
+                    City = "Bruxelles",
+                    PostalCode = "1040",
+                    Country = "Belgique"
+                }
+            ]);
+
 
         }
     }
