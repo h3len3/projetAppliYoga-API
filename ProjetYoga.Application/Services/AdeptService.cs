@@ -13,7 +13,7 @@ namespace ProjetYoga.Application.Services
 {
     public class AdeptService(IAdeptRepository adeptRepository, IMailer mailer) : IAdeptService
     {
-        public User Register(AdeptRegisterDTO dto)
+        public Adept Register(AdeptRegisterDTO dto)
         {
 
             // verif règles creation adept 
