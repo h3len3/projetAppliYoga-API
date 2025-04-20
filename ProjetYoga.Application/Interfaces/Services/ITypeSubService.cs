@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetYoga.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,6 @@ namespace ProjetYoga.Application.Interfaces.Services
 {
     public interface ITypeSubService
     {
+        TypeSub Register(CreateTypeSubDTO dTO);
     }
 }

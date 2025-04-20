@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetYoga.Application.DTO
+namespace ProjetYoga.Application.Interfaces.Services
 {
-    public class CreateAddressDTO
+    internal interface IGroupSessionService
     {
     }
 }
