@@ -36,6 +36,12 @@ builder.Services.AddScoped<ITypeSubRepository, TypeSubRepository>();
 builder.Services.AddScoped<ITypeSubService, TypeSubService>();
 builder.Services.AddScoped<IPaymentModeRepository, PaymentModeRepository>();
 builder.Services.AddScoped<IPaymentModeService, PaymentModeService>();
+builder.Services.AddScoped<IGroupSessionRepository, GroupSessionRepository>();
+builder.Services.AddScoped<IGroupSessionService, GroupSessionService>();
+builder.Services.AddScoped<IIndividualSessionRepository, IndividualSessionRepository>();
+builder.Services.AddScoped<IIndividualSessionService, IndividualSessionService>();
+builder.Services.AddScoped<ISpecialEventRepository, SpecialEventRepository>();
+builder.Services.AddScoped<ISpecialEventService, SpecialEventService>();
 //
 
 // Pour envoi de mails

@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ProjetYoga.Application.Interfaces.Services
 {
-    public interface IAdeptService
+    public interface IIndividualSessionService
     {
-        Adept Register(AdeptRegisterDTO dTO);
+        IndividualSession Register(CreateIndividualSessionRegisterDTO dTO);
     }
 }
