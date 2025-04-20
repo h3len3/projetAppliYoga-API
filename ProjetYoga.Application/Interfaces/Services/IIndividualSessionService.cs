@@ -10,6 +10,6 @@ namespace ProjetYoga.Application.Interfaces.Services
 {
     public interface IIndividualSessionService
     {
-        IndividualSession Register(CreateIndividualSessionRegisterDTO dTO);
+        IndividualSession Register(CreateIndividualSessionDTO dTO);
     }
 }

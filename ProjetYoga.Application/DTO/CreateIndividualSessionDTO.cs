@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetYoga.Application.DTO
 {
-    public class CreateIndividualSession
+    public class CreateIndividualSessionDTO
     {
     }
 }

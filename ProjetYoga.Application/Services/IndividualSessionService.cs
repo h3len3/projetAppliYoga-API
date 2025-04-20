@@ -13,8 +13,9 @@ namespace ProjetYoga.Application.Services
 {
     public class IndividualSessionService(IIndividualSessionRepository individualSessionRepository) : IIndividualSessionService
     {
-        public IndividualSession Register(IndividualSessionRegisterDTO dto)
+        public IndividualSession Register(CreateIndividualSessionDTO dto)
         {
 
         }
+    }
 }
