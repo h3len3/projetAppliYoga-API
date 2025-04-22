@@ -13,8 +13,13 @@ namespace ProjetYoga.Application.Services
 {
     public class EventService(IEventRepository eventRepository) : IEventService
     {
+        public List<Event> GetEvents()
+        {
+            return eventRepository.Find();
+        }
+
         // créer un Event <-> règles métier
-        public void CreateEvent(CreateEventDTO dto)
+        public Event Register(CreateEventDTO dto)
         {
             // vérifier toutes les règles de création : pas vraiment dans ce cas
 
@@ -28,11 +33,22 @@ namespace ProjetYoga.Application.Services
                 MaxSub = dto.MaxSub,
                 MinSub = dto.MinSub,
                 Available = true,
-                Id_PlaceEventYoga = dto.Id_PlaceEventYoga,
+                Id_PlaceEventYoga = dto.Id_PlaceEventYoga ?? 0,
                 //ou new
+                PlaceEventYoga = new PlaceEventYoga
+                {
+                    NamePlaceEventYoga = dto.NewPlaceEventYoga.Name,
+                    Address = new Address
+                    {
+                        // City = dto.NewPlaceEventYoga.Address.C
+                    }
+                }
             });
+
+            return e;
 
 
         }
+
     }
 }

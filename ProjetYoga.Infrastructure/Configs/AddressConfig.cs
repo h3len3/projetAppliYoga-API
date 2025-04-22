@@ -62,7 +62,15 @@ namespace ProjetYoga.Infrastructure.Configs
                     City = "Bruxelles",
                     PostalCode = "1040",
                     Country = "Belgique"
-                }
+                },
+                new Address {
+                        Id_Address = 2,
+                        City = "Bxl",
+                        Country = "Belgium",
+                        NumberStreet = 42,
+                        Street = "rue des marroniers",
+                        PostalCode = "1000"
+                    }
             ]);
 
 

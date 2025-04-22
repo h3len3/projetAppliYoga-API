@@ -10,6 +10,7 @@ namespace ProjetYoga.Application.Interfaces.Services
 {
     public interface IPlaceEventYogaService
     {
+        List<PlaceEventYoga> GetAll();
         PlaceEventYoga Register(CreatePlaceEventYogaDTO dTO);
     }
 }

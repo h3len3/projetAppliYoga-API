@@ -9,6 +9,6 @@ namespace ProjetYoga.Application.DTO
     public class NewPlaceEventYogaDTO
     {
         public string Name { get; set; }
-        public string Address { get; set; }
+        public CreateAddressDTO Address { get; set; }
     }
 }

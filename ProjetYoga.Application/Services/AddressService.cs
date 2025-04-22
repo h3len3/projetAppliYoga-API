@@ -15,6 +15,7 @@ namespace ProjetYoga.Application.Services
     {
         public Address Register(CreateAddressDTO dto)
         {
+            throw new Exception();
         }
     }
 }

@@ -14,7 +14,7 @@ namespace ProjetYoga.API.Controllers
             try
             {
 
-
+                throw new NotImplementedException();
             }
             catch (Exception)
             {

@@ -8,7 +8,6 @@ namespace ProjetYoga.Application.DTO
 {
     public class CreateEventDTO
     {
-
         public string Title { get; set; } = null!;
 
         public string Description { get; set; } = null!;

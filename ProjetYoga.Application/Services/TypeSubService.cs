@@ -14,6 +14,7 @@ namespace ProjetYoga.Application.Services
     {
         public TypeSub Register(CreateTypeSubDTO dto)
         {
+            throw new NotImplementedException();
         }
     }
 }

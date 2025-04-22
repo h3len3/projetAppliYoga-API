@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ProjetYoga.Infrastructure.Repositories
 {
-    public class GroupSession(ProjetYogaContext context) : RepositoryBase<GroupSession>(context), IGroupSessionRepository
+    public class GroupSessionRepository(ProjetYogaContext context) : RepositoryBase<GroupSession>(context), IGroupSessionRepository
     {
     }
 }

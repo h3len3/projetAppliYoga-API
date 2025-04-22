@@ -11,5 +11,6 @@ namespace ProjetYoga.Application.Interfaces.Services
     public interface IEventService
     {
         Event Register(CreateEventDTO dTO);
+        List<Event> GetEvents();
     }
 }

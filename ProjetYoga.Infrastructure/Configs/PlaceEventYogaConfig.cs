@@ -40,6 +40,11 @@ namespace ProjetYoga.Infrastructure.Configs
                     Id_PlaceEventYoga = 1,
                     NamePlaceEventYoga = "Studio du Parc Antoine",
                     Id_Address = 1
+                },
+                new PlaceEventYoga {
+                    Id_PlaceEventYoga = 2,
+                    NamePlaceEventYoga = "Digital City",
+                    Id_Address = 2
                 }
             ]);
 

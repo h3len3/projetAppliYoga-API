@@ -1,4 +1,5 @@
-﻿using ProjetYoga.Domain.Entities;
+﻿using ProjetYoga.Application.DTO;
+using ProjetYoga.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

@@ -15,7 +15,7 @@ namespace ProjetYoga.Application.Services
     {
         public PaymentMode Register(CreatePaymentModeDTO dto)
         {
-
+            throw new NotImplementedException();
         }
 
     }

@@ -1,11 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
 namespace ProjetYoga.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class DataInEventAndPlaceventyogaAndAddress : Migration
+    public partial class DataSeed : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,22 +16,25 @@ namespace ProjetYoga.Infrastructure.Migrations
                 columns: new[] { "Id_Address", "City", "Country", "NumberStreet", "PostalCode", "Street" },
                 values: new object[] { 1, "Bruxelles", "Belgique", 123, "1040", "Rue du parc Saint-Antoine" });
 
-            migrationBuilder.UpdateData(
-                table: "Event",
-                keyColumn: "Id_Event",
-                keyValue: 1,
-                column: "Id_PlaceEventYoga",
-                value: 1);
-
             migrationBuilder.InsertData(
                 table: "PlaceEventYoga",
                 columns: new[] { "Id_PlaceEventYoga", "Id_Address", "NamePlaceEventYoga" },
-                values: new object[] { 1, 1, "Studio du parc Antoine" });
+                values: new object[] { 1, 1, "Studio du Parc Antoine" });
+
+            migrationBuilder.InsertData(
+                table: "Event",
+                columns: new[] { "Id_Event", "Available", "Description", "EndDate", "Id_PlaceEventYoga", "MaxSub", "MinSub", "StartDate", "Title" },
+                values: new object[] { 1, true, "chants, postures, méditation", new DateTime(2025, 5, 10, 17, 0, 0, 0, DateTimeKind.Unspecified), 1, 15, 3, new DateTime(2025, 5, 10, 9, 0, 0, 0, DateTimeKind.Unspecified), "matinée viniyoga" });
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DeleteData(
+                table: "Event",
+                keyColumn: "Id_Event",
+                keyValue: 1);
+
             migrationBuilder.DeleteData(
                 table: "PlaceEventYoga",
                 keyColumn: "Id_PlaceEventYoga",
@@ -40,13 +44,6 @@ namespace ProjetYoga.Infrastructure.Migrations
                 table: "Address",
                 keyColumn: "Id_Address",
                 keyValue: 1);
-
-            migrationBuilder.UpdateData(
-                table: "Event",
-                keyColumn: "Id_Event",
-                keyValue: 1,
-                column: "Id_PlaceEventYoga",
-                value: 0);
         }
     }
 }

@@ -15,6 +15,7 @@ namespace ProjetYoga.Application.Services
     {
         public Instructor Register(InstructorRegisterDTO dto)
         {
+            throw new NotImplementedException();
         }
     }
 }

@@ -67,6 +67,15 @@ namespace ProjetYoga.Infrastructure.Migrations
                             NumberStreet = 123,
                             PostalCode = "1040",
                             Street = "Rue du parc Saint-Antoine"
+                        },
+                        new
+                        {
+                            Id_Address = 2,
+                            City = "Bxl",
+                            Country = "Belgium",
+                            NumberStreet = 42,
+                            PostalCode = "1000",
+                            Street = "rue des marroniers"
                         });
                 });
 
@@ -113,6 +122,20 @@ namespace ProjetYoga.Infrastructure.Migrations
                     b.ToTable("Event", (string)null);
 
                     b.UseTptMappingStrategy();
+
+                    b.HasData(
+                        new
+                        {
+                            Id_Event = 1,
+                            Available = true,
+                            Description = "chants, postures, méditation",
+                            EndDate = new DateTime(2025, 5, 10, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id_PlaceEventYoga = 1,
+                            MaxSub = 15,
+                            MinSub = 3,
+                            StartDate = new DateTime(2025, 5, 10, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "matinée viniyoga"
+                        });
                 });
 
             modelBuilder.Entity("ProjetYoga.Domain.Entities.PaymentMode", b =>
@@ -155,6 +178,20 @@ namespace ProjetYoga.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("PlaceEventYoga", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id_PlaceEventYoga = 1,
+                            Id_Address = 1,
+                            NamePlaceEventYoga = "Studio du Parc Antoine"
+                        },
+                        new
+                        {
+                            Id_PlaceEventYoga = 2,
+                            Id_Address = 2,
+                            NamePlaceEventYoga = "Digital City"
+                        });
                 });
 
             modelBuilder.Entity("ProjetYoga.Domain.Entities.Reservation", b =>
@@ -342,6 +379,21 @@ namespace ProjetYoga.Infrastructure.Migrations
                     b.HasIndex("Id_Address");
 
                     b.ToTable("Adept", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id_User = 3,
+                            Email = "lykhun@gmail.com",
+                            Password = "���?=�\0�J��M^/����DH׊�P��H�QNLO`�p*Rc<Q��^Ɗ�Z7������",
+                            Salt = new Guid("a802db70-4c4d-4e0d-80b1-9ec3f61608c8"),
+                            BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id_Address = 2,
+                            LastnameAdept = "Ly",
+                            NameAdept = "Khun",
+                            NissAdept = "82050620316",
+                            PhoneAdept = "0000000"
+                        });
                 });
 
             modelBuilder.Entity("ProjetYoga.Domain.Entities.Instructor", b =>

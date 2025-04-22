@@ -12,8 +12,8 @@ using ProjetYoga.Infrastructure;
 namespace ProjetYoga.Infrastructure.Migrations
 {
     [DbContext(typeof(ProjetYogaContext))]
-    [Migration("20250419073154_TestHasDataEvent")]
-    partial class TestHasDataEvent
+    [Migration("20250422072741_DataSeed")]
+    partial class DataSeed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,6 +60,17 @@ namespace ProjetYoga.Infrastructure.Migrations
                     b.HasKey("Id_Address");
 
                     b.ToTable("Address", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id_Address = 1,
+                            City = "Bruxelles",
+                            Country = "Belgique",
+                            NumberStreet = 123,
+                            PostalCode = "1040",
+                            Street = "Rue du parc Saint-Antoine"
+                        });
                 });
 
             modelBuilder.Entity("ProjetYoga.Domain.Entities.Event", b =>
@@ -111,13 +122,13 @@ namespace ProjetYoga.Infrastructure.Migrations
                         {
                             Id_Event = 1,
                             Available = true,
-                            Description = "Chants, postures, méditation",
+                            Description = "chants, postures, méditation",
                             EndDate = new DateTime(2025, 5, 10, 17, 0, 0, 0, DateTimeKind.Unspecified),
-                            Id_PlaceEventYoga = 0,
+                            Id_PlaceEventYoga = 1,
                             MaxSub = 15,
                             MinSub = 3,
                             StartDate = new DateTime(2025, 5, 10, 9, 0, 0, 0, DateTimeKind.Unspecified),
-                            Title = "Matinée Viniyoga"
+                            Title = "matinée viniyoga"
                         });
                 });
 
@@ -161,6 +172,14 @@ namespace ProjetYoga.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("PlaceEventYoga", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id_PlaceEventYoga = 1,
+                            Id_Address = 1,
+                            NamePlaceEventYoga = "Studio du Parc Antoine"
+                        });
                 });
 
             modelBuilder.Entity("ProjetYoga.Domain.Entities.Reservation", b =>

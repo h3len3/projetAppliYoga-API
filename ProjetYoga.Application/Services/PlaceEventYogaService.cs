@@ -12,8 +12,14 @@ namespace ProjetYoga.Application.Services
 {
     public class PlaceEventYogaService(IPlaceEventYogaRepository placeEventYogaRepository) : IPlaceEventYogaService
     {
+        public List<PlaceEventYoga> GetAll()
+        {
+           return placeEventYogaRepository.Find();
+        }
+
         public PlaceEventYoga Register(CreatePlaceEventYogaDTO dto)
         {
+            throw new NotImplementedException();
         }
     }
 }

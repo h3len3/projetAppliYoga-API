@@ -8,5 +8,6 @@ namespace ProjetYoga.Application.DTO
 {
     public class CreateAddressDTO
     {
+
     }
 }

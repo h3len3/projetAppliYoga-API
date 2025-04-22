@@ -15,7 +15,7 @@ namespace ProjetYoga.Application.Services
     {
         public IndividualSession Register(CreateIndividualSessionDTO dto)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

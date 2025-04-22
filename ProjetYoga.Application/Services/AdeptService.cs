@@ -21,6 +21,7 @@ namespace ProjetYoga.Application.Services
             // enr DB :  insertion Adept
 
             // envoyer mail à cet Adept ? U ? -> H ?
+            throw new NotImplementedException();
         }
 
     }

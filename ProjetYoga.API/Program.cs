@@ -57,9 +57,11 @@ builder.Services.AddScoped(c => new SmtpClient
 
 });
 builder.Services.AddScoped<IMailer, Mailer>();
-//
+// cors
+builder.Services.AddCors(b => b.AddDefaultPolicy(o => o.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 
 var app = builder.Build();
+app.UseCors();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

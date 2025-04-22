@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProjetYoga.Application.Utils;
 
 namespace ProjetYoga.Infrastructure.Configs
 {
@@ -44,6 +45,20 @@ namespace ProjetYoga.Infrastructure.Configs
                 .WithMany(ad => ad.Adepts)
                 .HasForeignKey(a => a.Id_Address)
                 .OnDelete(DeleteBehavior.Restrict); // ou Cascade, changer plus tard
+
+            builder.HasData([
+                new Adept {
+                    Id_User = 3,
+                    Email = "lykhun@gmail.com",
+                    Password = PasswordUtils.HashPassword("1234", new Guid("a802db70-4c4d-4e0d-80b1-9ec3f61608c8")),
+                    Salt = new Guid("a802db70-4c4d-4e0d-80b1-9ec3f61608c8"),
+                    NameAdept = "Khun",
+                    LastnameAdept = "Ly",
+                    NissAdept = "82050620316",
+                    PhoneAdept = "0000000",
+                    Id_Address = 2,
+                }
+                ]); ;
 
         }
     }

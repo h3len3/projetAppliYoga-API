@@ -15,7 +15,7 @@ namespace ProjetYoga.Application.Services
     {
         public SpecialEvent Register(CreateSpecialEventDTO dto)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

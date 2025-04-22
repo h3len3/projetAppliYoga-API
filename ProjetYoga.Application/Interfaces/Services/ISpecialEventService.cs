@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ProjetYoga.Application.Interfaces.Services
 {
-    public class ISpecialEventService
+    public interface ISpecialEventService
     {
         SpecialEvent Register(CreateSpecialEventDTO dTO);
     }
