@@ -34,5 +34,7 @@ namespace ProjetYoga.Domain.Entities
         // many to one - FK ds Event poitant vers PlaceEventYoga:
         public int Id_PlaceEventYoga { get; set; }
         public PlaceEventYoga PlaceEventYoga { get; set; }
+
+        public virtual string Type => "Autre";
     }
 }

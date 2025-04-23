@@ -60,6 +60,7 @@ namespace ProjetYoga.Infrastructure.Configs
                 .HasForeignKey(e => e.Id_PlaceEventYoga)
                 .IsRequired();
 
+
             // data 
             builder.HasData([
                 new Event {

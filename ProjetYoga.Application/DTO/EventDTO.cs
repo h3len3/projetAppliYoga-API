@@ -14,5 +14,6 @@ namespace ProjetYoga.Application.DTO
         public string Description { get; set; } = e.Description;
         public DateTime StartDate { get; set; } = e.StartDate;
         public DateTime EndDate { get; set; } = e.EndDate;
+        public string Type { get; set; } = e.Type;
     }
 }

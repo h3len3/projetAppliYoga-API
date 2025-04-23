@@ -344,6 +344,20 @@ namespace ProjetYoga.Infrastructure.Migrations
                     b.HasBaseType("ProjetYoga.Domain.Entities.Event");
 
                     b.ToTable("SpecialEvent", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id_Event = 2,
+                            Available = true,
+                            Description = "chants, postures, méditation",
+                            EndDate = new DateTime(2025, 5, 11, 17, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id_PlaceEventYoga = 1,
+                            MaxSub = 15,
+                            MinSub = 3,
+                            StartDate = new DateTime(2025, 5, 11, 9, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Souper des anciens"
+                        });
                 });
 
             modelBuilder.Entity("ProjetYoga.Domain.Entities.Adept", b =>

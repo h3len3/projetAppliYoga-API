@@ -12,8 +12,8 @@ using ProjetYoga.Infrastructure;
 namespace ProjetYoga.Infrastructure.Migrations
 {
     [DbContext(typeof(ProjetYogaContext))]
-    [Migration("20250422072741_DataSeed")]
-    partial class DataSeed
+    [Migration("20250423133509_Dataseed")]
+    partial class Dataseed
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -70,6 +70,15 @@ namespace ProjetYoga.Infrastructure.Migrations
                             NumberStreet = 123,
                             PostalCode = "1040",
                             Street = "Rue du parc Saint-Antoine"
+                        },
+                        new
+                        {
+                            Id_Address = 2,
+                            City = "Bxl",
+                            Country = "Belgium",
+                            NumberStreet = 42,
+                            PostalCode = "1000",
+                            Street = "rue des marroniers"
                         });
                 });
 
@@ -179,6 +188,12 @@ namespace ProjetYoga.Infrastructure.Migrations
                             Id_PlaceEventYoga = 1,
                             Id_Address = 1,
                             NamePlaceEventYoga = "Studio du Parc Antoine"
+                        },
+                        new
+                        {
+                            Id_PlaceEventYoga = 2,
+                            Id_Address = 2,
+                            NamePlaceEventYoga = "Digital City"
                         });
                 });
 
@@ -367,6 +382,21 @@ namespace ProjetYoga.Infrastructure.Migrations
                     b.HasIndex("Id_Address");
 
                     b.ToTable("Adept", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id_User = 3,
+                            Email = "lykhun@gmail.com",
+                            Password = "���?=�\0�J��M^/����DH׊�P��H�QNLO`�p*Rc<Q��^Ɗ�Z7������",
+                            Salt = new Guid("a802db70-4c4d-4e0d-80b1-9ec3f61608c8"),
+                            BirthDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Id_Address = 2,
+                            LastnameAdept = "Ly",
+                            NameAdept = "Khun",
+                            NissAdept = "82050620316",
+                            PhoneAdept = "0000000"
+                        });
                 });
 
             modelBuilder.Entity("ProjetYoga.Domain.Entities.Instructor", b =>
