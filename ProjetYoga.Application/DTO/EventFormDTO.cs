@@ -26,6 +26,8 @@ namespace ProjetYoga.Application.DTO
         // Soit on envoie un ID existant...
         public int? Id_PlaceEventYoga { get; set; }
 
+        public string Type { get; set; }
+
         // ... soit un nouveau lieu à créer
         public NewPlaceEventYogaDTO? NewPlaceEventYoga { get; set; }
 

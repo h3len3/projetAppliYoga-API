@@ -15,7 +15,7 @@ namespace ProjetYoga.API.Controllers
         {
             
             
-                eventService.Register(dto, dto.NewPlaceEventYoga, dto.NewPlaceEventYoga?.Address);
+                eventService.Register(dto);
                 return Created();
         }
 

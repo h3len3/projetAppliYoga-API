@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ProjetYoga.Application.Services
 {
@@ -20,40 +21,50 @@ namespace ProjetYoga.Application.Services
         }
 
         // créer un Event <-> règles métier
-        public Event Register(EventFormDTO dto, NewPlaceEventYogaDTO dtoNPEY, CreateAddressDTO dtoA )
+
+        // pour gérer le type d'évènement 
+        public Event GetTypeForEvent(string category)
+        {
+            switch (category)
+            {
+                case "GroupSession":
+                    return new GroupSession();
+
+                case "IndividualSession":
+                    return new IndividualSession();
+
+                case "SpecialEvent":
+                    return new SpecialEvent();
+
+                default:
+                    return new Event();
+            }
+        }
+        public Event Register(EventFormDTO dto )
         {
             // vérifier toutes les règles de création : pas vraiment dans ce cas
 
             //enregistrer, dans la DB
-            Event e = eventRepository.Add(new Event
-            {
-                Title = dto.Title,
-                Description = dto.Description,
-                StartDate = dto.StartDate,
-                EndDate = dto.EndDate,
-                MaxSub = dto.MaxSub,
-                MinSub = dto.MinSub,
-                Available = true,
-                Id_PlaceEventYoga = dto.Id_PlaceEventYoga ?? 0,
-                //TODO ou new
-                //PlaceEventYoga = new PlaceEventYoga
-                //{
-                //    NamePlaceEventYoga = dtoNPEY.Name,
-                //    Address = new Address
-                //    {
-                //        Street = dtoA.Street,
-                //        NumberStreet = dtoA.NumberStreet,
-                //        City = dtoA.City,
-                //        PostalCode = dtoA.PostalCode,
-                //        Country = dtoA.Country,
+            Event toAdd = GetTypeForEvent(dto.Type);
+            toAdd.Title = dto.Title;
+            toAdd.Description = dto.Description;
+            toAdd.StartDate = dto.StartDate;
+            toAdd.EndDate = dto.EndDate;
+            toAdd.MaxSub = dto.MaxSub;
+            toAdd.MinSub = dto.MinSub;
+            toAdd.Available = true;
+            toAdd.Id_PlaceEventYoga = dto.Id_PlaceEventYoga ?? 0;
 
-                //    }
-                //}
-            });
+            Event e = eventRepository.Add(toAdd);
 
             return e;
 
 
+        }
+
+        public Event Register(EventFormDTO dto, NewPlaceEventYogaDTO dtoNPEY, CreateAddressDTO dtoA)
+        {
+            throw new NotImplementedException();
         }
 
         public void UpdateEvent(int Id_Event, EventFormDTO dto)
@@ -76,6 +87,8 @@ namespace ProjetYoga.Application.Services
            
            eventRepository.Update(toUpdate);
         }
+
+        
 
 
     }
