@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ProjetYoga.Application.Services
@@ -19,7 +20,7 @@ namespace ProjetYoga.Application.Services
         }
 
         // créer un Event <-> règles métier
-        public Event Register(CreateEventDTO dto, NewPlaceEventYogaDTO dtoNPEY, CreateAddressDTO dtoA )
+        public Event Register(EventFormDTO dto, NewPlaceEventYogaDTO dtoNPEY, CreateAddressDTO dtoA )
         {
             // vérifier toutes les règles de création : pas vraiment dans ce cas
 
@@ -55,6 +56,27 @@ namespace ProjetYoga.Application.Services
 
         }
 
-       
+        public void UpdateEvent(int Id_Event, EventFormDTO dto)
+        {
+            Event? toUpdate = eventRepository.FindOne(Id_Event);
+            if (toUpdate is null)
+            {
+                throw new KeyNotFoundException();
+            }
+
+            toUpdate.Title = dto.Title;
+            toUpdate.Description = dto.Description;
+            toUpdate.StartDate = dto.StartDate;
+            toUpdate.EndDate = dto.EndDate;
+            toUpdate.MaxSub = dto.MaxSub;
+            toUpdate.MinSub = dto.MinSub;
+            toUpdate.Available = true;
+            toUpdate.Id_PlaceEventYoga = dto.Id_PlaceEventYoga ?? 0;
+            
+           
+           eventRepository.Update(toUpdate);
+        }
+
+
     }
 }

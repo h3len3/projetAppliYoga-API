@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetYoga.Application.DTO
 {
-    public class CreateEventDTO
+    public class EventFormDTO
     {
         public string Title { get; set; } = null!;
 

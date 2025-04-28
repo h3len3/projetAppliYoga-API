@@ -11,16 +11,19 @@ namespace ProjetYoga.API.Controllers
     public class EventController(IEventService eventService) : ControllerBase
     {
         [HttpPost]
-        public IActionResult Post(CreateEventDTO dto)
+        public IActionResult Post(EventFormDTO dto)
         {
             
             
                 eventService.Register(dto, dto.NewPlaceEventYoga, dto.NewPlaceEventYoga?.Address);
                 return Created();
+        }
 
-            
-         
-          
+        [HttpPut("{id}")]
+        public IActionResult Put(int id, EventFormDTO dto)
+        {
+            eventService.UpdateEvent(id, dto);
+            return Created();
         }
 
         [HttpGet]

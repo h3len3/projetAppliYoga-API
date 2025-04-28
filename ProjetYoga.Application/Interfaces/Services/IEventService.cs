@@ -10,7 +10,8 @@ namespace ProjetYoga.Application.Interfaces.Services
 {
     public interface IEventService
     {
-        Event Register(CreateEventDTO dto, NewPlaceEventYogaDTO dtoNPEY, CreateAddressDTO dtoA);
+        Event Register(EventFormDTO dto, NewPlaceEventYogaDTO dtoNPEY, CreateAddressDTO dtoA);
+        void UpdateEvent(int id, EventFormDTO dto);
         List<Event> GetEvents();
     }
 }
