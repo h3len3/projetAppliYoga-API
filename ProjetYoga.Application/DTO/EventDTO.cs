@@ -15,5 +15,6 @@ namespace ProjetYoga.Application.DTO
         public DateTime StartDate { get; set; } = e.StartDate;
         public DateTime EndDate { get; set; } = e.EndDate;
         public string Type { get; set; } = e.Type;
+        public int Id_PlaceEventYoga = e.Id_PlaceEventYoga;
     }
 }
