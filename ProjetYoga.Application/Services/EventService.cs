@@ -19,7 +19,7 @@ namespace ProjetYoga.Application.Services
         }
 
         // créer un Event <-> règles métier
-        public Event Register(CreateEventDTO dto)
+        public Event Register(CreateEventDTO dto, NewPlaceEventYogaDTO dtoNPEY, CreateAddressDTO dtoA )
         {
             // vérifier toutes les règles de création : pas vraiment dans ce cas
 
@@ -34,15 +34,20 @@ namespace ProjetYoga.Application.Services
                 MinSub = dto.MinSub,
                 Available = true,
                 Id_PlaceEventYoga = dto.Id_PlaceEventYoga ?? 0,
-                //ou new
-                PlaceEventYoga = new PlaceEventYoga
-                {
-                    NamePlaceEventYoga = dto.NewPlaceEventYoga.Name,
-                    Address = new Address
-                    {
-                        // City = dto.NewPlaceEventYoga.Address.C
-                    }
-                }
+                //TODO ou new
+                //PlaceEventYoga = new PlaceEventYoga
+                //{
+                //    NamePlaceEventYoga = dtoNPEY.Name,
+                //    Address = new Address
+                //    {
+                //        Street = dtoA.Street,
+                //        NumberStreet = dtoA.NumberStreet,
+                //        City = dtoA.City,
+                //        PostalCode = dtoA.PostalCode,
+                //        Country = dtoA.Country,
+
+                //    }
+                //}
             });
 
             return e;
@@ -50,5 +55,6 @@ namespace ProjetYoga.Application.Services
 
         }
 
+       
     }
 }

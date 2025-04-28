@@ -13,17 +13,14 @@ namespace ProjetYoga.API.Controllers
         [HttpPost]
         public IActionResult Post(CreateEventDTO dto)
         {
-            try
-            {
-                eventService.Register(dto);
+            
+            
+                eventService.Register(dto, dto.NewPlaceEventYoga, dto.NewPlaceEventYoga?.Address);
                 return Created();
 
-            }
-            catch (Exception)
-            {
-
-                return BadRequest();
-            }
+            
+         
+          
         }
 
         [HttpGet]
