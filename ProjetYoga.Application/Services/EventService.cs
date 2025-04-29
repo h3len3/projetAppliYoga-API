@@ -15,6 +15,7 @@ namespace ProjetYoga.Application.Services
 {
     public class EventService(IEventRepository eventRepository) : IEventService
     {
+       
         public List<Event> GetEvents()
         {
             return eventRepository.Find();
@@ -62,10 +63,10 @@ namespace ProjetYoga.Application.Services
 
         }
 
-        public Event Register(EventFormDTO dto, NewPlaceEventYogaDTO dtoNPEY, CreateAddressDTO dtoA)
-        {
-            throw new NotImplementedException();
-        }
+        //public Event Register(EventFormDTO dto, NewPlaceEventYogaDTO dtoNPEY, CreateAddressDTO dtoA)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         public void UpdateEvent(int Id_Event, EventFormDTO dto)
         {
@@ -89,8 +90,12 @@ namespace ProjetYoga.Application.Services
            eventRepository.Update(toUpdate);
         }
 
-        
-
+        public void DeleteEvent(int Id_Event)
+        {
+            Event? toDelete = eventRepository.FindOne(Id_Event);
+            if (toDelete is null) { throw new KeyNotFoundException(); }
+            eventRepository.Remove(toDelete);
+        }
 
     }
 }

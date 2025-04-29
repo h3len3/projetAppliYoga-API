@@ -10,10 +10,15 @@ namespace ProjetYoga.API.Controllers
     [ApiController]
     public class EventController(IEventService eventService) : ControllerBase
     {
+        [HttpGet]
+        public IActionResult Get()
+        {
+            return Ok(eventService.GetEvents().Select(e => new EventDTO(e)));
+        }
+
         [HttpPost]
         public IActionResult Post(EventFormDTO dto)
         {
-            
             
                 eventService.Register(dto);
                 return Created();
@@ -26,10 +31,13 @@ namespace ProjetYoga.API.Controllers
             return Created();
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
         {
-            return Ok(eventService.GetEvents().Select(e => new EventDTO(e)));
+            eventService.DeleteEvent(id);
+            return Ok();
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ProjetYoga.Application.DTO;
 using ProjetYoga.Application.Exceptions;
 using ProjetYoga.Application.Interfaces.Services;
@@ -32,5 +33,7 @@ namespace ProjetYoga.API.Controllers
             }
 
         }
+
+        
     }
 }

@@ -12,7 +12,7 @@ namespace ProjetYoga.Application.DTO
     public class RegisterUserResultDTO(User u)
     {
         public int Id_User { get; set; } = u.Id_User;
-        // public string Email { get; set; } = u.Email;
+        public string Email { get; set; } = u.Email;
        
     }
 }
