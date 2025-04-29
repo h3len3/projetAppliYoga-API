@@ -85,6 +85,7 @@ namespace ProjetYoga.Application.Services
             toUpdate.Id_PlaceEventYoga = dto.Id_PlaceEventYoga ?? 0;
             
            
+           
            eventRepository.Update(toUpdate);
         }
 

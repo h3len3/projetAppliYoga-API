@@ -8,6 +8,6 @@ namespace ProjetYoga.Domain.Entities
 {
     public class IndividualSession : Event
     {
-        public override string Type => "Session individuelle";
+        public override string Type => "IndividualSession";
     }
 }

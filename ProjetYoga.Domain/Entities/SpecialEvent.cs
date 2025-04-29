@@ -8,6 +8,6 @@ namespace ProjetYoga.Domain.Entities
 {
     public class SpecialEvent : Event
     {
-        public override string Type => "Evenement special";
+        public override string Type => "SpecialEvent";
     }
 }

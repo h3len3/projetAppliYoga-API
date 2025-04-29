@@ -14,6 +14,6 @@ namespace ProjetYoga.Domain.Entities
         // héritage (enfant de User)
         // avec TypeSub : One to many - FK ds GroupSession
 
-        public override string Type => "Session de groupe";
+        public override string Type => "GroupSession";
     }
 }

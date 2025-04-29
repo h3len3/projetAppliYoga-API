@@ -10,7 +10,7 @@ namespace ProjetYoga.Domain.Entities
     {
         public int Id_User { get; set; }
         public User User { get; set; }
-
+        
         public int Id_Event { get; set; }
         public Event Event { get; set; }
 
