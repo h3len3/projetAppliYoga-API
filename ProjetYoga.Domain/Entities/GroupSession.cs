@@ -8,7 +8,6 @@ namespace ProjetYoga.Domain.Entities
 {
     public class GroupSession : Event
     {
-        public string DaysAndHours { get; set; } = null!;
 
 
         // Relation : 

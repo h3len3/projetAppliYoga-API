@@ -16,9 +16,6 @@ namespace ProjetYoga.Infrastructure.Configs
         {
             builder.ToTable("GroupSession");
 
-            builder.Property(g => g.DaysAndHours)
-                .IsRequired()
-                .HasMaxLength(100);
 
         }
     }
