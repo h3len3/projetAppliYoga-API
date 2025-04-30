@@ -24,6 +24,11 @@ namespace ProjetYoga.Infrastructure.Configs
             builder.Property(pm => pm.Name_PaymentMode)
                 .IsRequired()
                 .HasMaxLength(100);
+
+            builder.HasData([new PaymentMode {
+                Id_PaymentMode = 1,
+                Name_PaymentMode = "Aucun"
+            }]);
         }
     }
 }

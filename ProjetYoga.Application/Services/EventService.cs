@@ -1,7 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetYoga.Application.DTO;
+using ProjetYoga.Application.Exceptions;
+using ProjetYoga.Application.Interfaces;
 using ProjetYoga.Application.Interfaces.Repositories;
 using ProjetYoga.Application.Interfaces.Services;
+using ProjetYoga.Application.Utils;
 using ProjetYoga.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -9,11 +12,12 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Transactions;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ProjetYoga.Application.Services
 {
-    public class EventService(IEventRepository eventRepository) : IEventService
+    public class EventService(IEventRepository eventRepository, IMailer mailer, IUserRepository userRepository, IReservationRepository reservationRepository, IUserService userService) : IEventService
     {
        
         public List<Event> GetEvents()
@@ -95,6 +99,39 @@ namespace ProjetYoga.Application.Services
             Event? toDelete = eventRepository.FindOne(Id_Event);
             if (toDelete is null) { throw new KeyNotFoundException(); }
             eventRepository.Remove(toDelete);
+        }
+
+
+        public void Booking(int Id_Event, EventBookingDTO dtoB) 
+        {
+            // Transaction (using ci-dessous + en fin transactionScope.Complete();)
+            using TransactionScope transactionScope = new();
+            User u = userRepository.FindOneWhere(u => u.Email == dtoB.Email) 
+                ?? userService.Register(new UserRegisterDTO
+                {
+                    email = dtoB.Email,
+                    password = "1234"
+                });
+            // vérifier email unique
+            // list des inscri à cet event ou liste des email de linscrà cet event = cmt y arriver
+            if (reservationRepository.Any(r => r.Id_Event == Id_Event && r.Id_User == u.Id_User))
+            { 
+                throw new Exception("Déjà enregistré"); 
+            };
+            reservationRepository.Add(new Reservation
+            {
+                Id_Event = Id_Event,
+                Id_User = u.Id_User,
+                Payed = false,
+                PaymentModeId = 1
+            });
+            // régles pour s'incr à un event, comme exemple : pas à un event passé
+            // email qui existe            
+            // envoyer un mail 
+            Event thisEvent = eventRepository.FindOne(Id_Event);
+            mailer.Send(dtoB.Email, "Inscription", $"Bienvenue, par ce mail nous vous confirmons que votre inscription à {thisEvent.Title}, {thisEvent.StartDate}-{thisEvent.EndDate}. Merci & à bientôt ! ");
+            transactionScope.Complete();
+            
         }
 
     }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ProjetYoga.Application.DTO
 {
-    public class EventRegisterDTO
+    public class EventBookingDTO
     {
         [Required]
         [EmailAddress]

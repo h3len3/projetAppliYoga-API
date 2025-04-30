@@ -16,6 +16,9 @@ namespace ProjetYoga.Application.Interfaces.Services
         void UpdateEvent(int id, EventFormDTO dto);
 
         void DeleteEvent(int id);
-        
+
+        void Booking(int Id_Event, EventBookingDTO dtoB);
+
+
     }
 }

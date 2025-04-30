@@ -40,9 +40,10 @@ namespace ProjetYoga.API.Controllers
             return Ok();
         }
 
-        [HttpPost("Register/{id}")]
-        public IActionResult Register([FromRoute]int id, [FromBody] EventRegisterDTO dto)
+        [HttpPost("Booking/{id}")]
+        public IActionResult Booking([FromRoute]int id, [FromBody] EventBookingDTO dtoB)
         {
+            eventService.Booking(id, dtoB);
             return Ok();
         }
     }
