@@ -11,11 +11,11 @@ namespace ProjetYoga.API.Controllers
     public class ReservationController(IReservationService reservationService) : ControllerBase
     {
 
-        [HttpGet]
-        public IActionResult GetByEventId([FromQuery] int eventId)
-        {
-            return Ok(reservationService.GetByEventId(eventId));
-        }
+        //[HttpGet]
+        //public IActionResult GetByEventId([FromQuery] int eventId)
+        //{
+        //    return Ok(reservationService.GetByEventId(eventId));
+        //}
 
     }
 
