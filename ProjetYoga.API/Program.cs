@@ -43,6 +43,7 @@ builder.Services.AddScoped<IIndividualSessionService, IndividualSessionService>(
 builder.Services.AddScoped<ISpecialEventRepository, SpecialEventRepository>();
 builder.Services.AddScoped<ISpecialEventService, SpecialEventService>();
 builder.Services.AddScoped<IReservationRepository, ReservationRepository>();
+builder.Services.AddScoped<IReservationService, ReservationService>();
 //
 
 // Pour envoi de mails

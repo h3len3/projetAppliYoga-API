@@ -10,5 +10,6 @@ namespace ProjetYoga.Application.Interfaces.Repositories
 {
     public interface IReservationRepository : IRepositoryBase<Reservation>
     {
+        List<Reservation> FindAllByEventId(int eventId);
     }
 }

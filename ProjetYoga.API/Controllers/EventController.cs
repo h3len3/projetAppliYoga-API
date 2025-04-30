@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ProjetYoga.Application.DTO;
+using ProjetYoga.Application.Exceptions;
 using ProjetYoga.Application.Interfaces.Services;
 using ProjetYoga.Application.Services;
+using System.Net.Mail;
 
 namespace ProjetYoga.API.Controllers
 {
@@ -43,8 +45,20 @@ namespace ProjetYoga.API.Controllers
         [HttpPost("Booking/{id}")]
         public IActionResult Booking([FromRoute]int id, [FromBody] EventBookingDTO dtoB)
         {
-            eventService.Booking(id, dtoB);
-            return Ok();
+            try
+            {
+                eventService.Booking(id, dtoB);
+                return Ok();
+            }
+            catch(SmtpException)
+            {
+                return BadRequest("Email invalide");
+            }
+            catch (DuplicateReservationException)
+            {
+                return BadRequest("Déjà enregistré");
+            }
         }
+
     }
 }

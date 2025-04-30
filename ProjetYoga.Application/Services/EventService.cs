@@ -115,8 +115,8 @@ namespace ProjetYoga.Application.Services
             // vérifier email unique
             // list des inscri à cet event ou liste des email de linscrà cet event = cmt y arriver
             if (reservationRepository.Any(r => r.Id_Event == Id_Event && r.Id_User == u.Id_User))
-            { 
-                throw new Exception("Déjà enregistré"); 
+            {
+                throw new DuplicateReservationException(); 
             };
             reservationRepository.Add(new Reservation
             {
@@ -129,7 +129,7 @@ namespace ProjetYoga.Application.Services
             // email qui existe            
             // envoyer un mail 
             Event thisEvent = eventRepository.FindOne(Id_Event);
-            mailer.Send(dtoB.Email, "Inscription", $"Bienvenue, par ce mail nous vous confirmons que votre inscription à {thisEvent.Title}, {thisEvent.StartDate}-{thisEvent.EndDate}. Merci & à bientôt ! ");
+            mailer.Send(dtoB.Email, "Inscription", $"Bienvenue, par ce mail nous vous confirmons que votre inscription à {thisEvent.Title}, {thisEvent.StartDate.ToLocalTime()}-{thisEvent.EndDate.ToLocalTime()}. Merci & à bientôt ! ");
             transactionScope.Complete();
             
         }
