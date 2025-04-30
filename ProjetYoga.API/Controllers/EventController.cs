@@ -39,5 +39,11 @@ namespace ProjetYoga.API.Controllers
             eventService.DeleteEvent(id);
             return Ok();
         }
+
+        [HttpPost("Register/{id}")]
+        public IActionResult Register([FromRoute]int id, [FromBody] EventRegisterDTO dto)
+        {
+            return Ok();
+        }
     }
 }
