@@ -10,6 +10,7 @@ namespace ProjetYoga.Application.Interfaces.Services
 {
     public interface IReservationService
     {
-        List<Reservation> GetByEventId(int eventId);
+        //List<Reservation> GetByEventId(int eventId);
+        List<ReservationDTO> GetByEventId(int eventId);
     }
 }

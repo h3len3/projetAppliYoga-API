@@ -18,3 +18,12 @@ namespace ProjetYoga.Infrastructure.Repositories
         }
     }
 }
+
+// ct : 
+//public List<Reservation> FindAllByEventId(int eventId)
+//{
+//    return _context.Reservations
+//        .Include(r => r.User)
+//        .Where(r => r.Id_Event == eventId)
+//        .ToList();
+//}
