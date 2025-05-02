@@ -36,7 +36,7 @@ namespace ProjetYoga.Domain.Entities
         public int Id_PlaceEventYoga { get; set; }
 
         [ForeignKey("Id_PlaceEventYoga")]
-        public PlaceEventYoga PlaceEventYoga { get; set; }
+        public PlaceEventYoga? PlaceEventYoga { get; set; }
 
         public virtual string Type => "Autre";
     }

@@ -18,8 +18,10 @@ namespace ProjetYoga.Infrastructure.Configs
             builder.HasKey(r => new { r.Id_User, r.Id_Event }); // many-to-many
 
 
+            //builder.Property(r => r.DateReservation)
+            //    .IsRequired();
             builder.Property(r => r.DateReservation)
-                .IsRequired();
+                .HasDefaultValueSql("GETUTCDATE()");
 
             builder.Property(r => r.Payed)
                 .IsRequired();

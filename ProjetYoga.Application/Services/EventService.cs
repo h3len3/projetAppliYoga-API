@@ -59,13 +59,25 @@ namespace ProjetYoga.Application.Services
             toAdd.MinSub = dto.MinSub;
             toAdd.Available = true;
             toAdd.Id_PlaceEventYoga = dto.Id_PlaceEventYoga ?? 0;
+            toAdd.PlaceEventYoga = dto.Id_PlaceEventYoga != null ? null : new PlaceEventYoga
+            {
+                NamePlaceEventYoga = dto.NewPlaceEventYoga!.Name,
+                Address = new Address
+                {
+                    Street = dto.NewPlaceEventYoga.Address.Street,
+                    NumberStreet = dto.NewPlaceEventYoga.Address.NumberStreet,
+                    PostalCode = dto.NewPlaceEventYoga.Address.PostalCode,
+                    City = dto.NewPlaceEventYoga.Address.City,
+                    Country= dto.NewPlaceEventYoga.Address.Country
 
+                }
+            };
             Event e = eventRepository.Add(toAdd);
 
             return e;
 
 
-        }
+    }
 
         //public Event Register(EventFormDTO dto, NewPlaceEventYogaDTO dtoNPEY, CreateAddressDTO dtoA)
         //{
@@ -88,10 +100,24 @@ namespace ProjetYoga.Application.Services
             toUpdate.MinSub = dto.MinSub;
             toUpdate.Available = true;
             toUpdate.Id_PlaceEventYoga = dto.Id_PlaceEventYoga ?? 0;
-            
-           
-           
-           eventRepository.Update(toUpdate);
+
+            toUpdate.PlaceEventYoga = dto.Id_PlaceEventYoga != null ? null : new PlaceEventYoga
+            {
+                NamePlaceEventYoga = dto.NewPlaceEventYoga.Name,
+                Address = new Address
+                {
+                    Street = dto.NewPlaceEventYoga.Address.Street,
+                    NumberStreet = dto.NewPlaceEventYoga.Address.NumberStreet,
+                    PostalCode = dto.NewPlaceEventYoga.Address.PostalCode,
+                    City = dto.NewPlaceEventYoga.Address.City,
+                    Country = dto.NewPlaceEventYoga.Address.Country
+
+                }
+            };
+
+
+
+            eventRepository.Update(toUpdate);
         }
 
         public void DeleteEvent(int Id_Event)
@@ -129,7 +155,7 @@ namespace ProjetYoga.Application.Services
             // email qui existe            
             // envoyer un mail 
             Event thisEvent = eventRepository.FindOne(Id_Event);
-            mailer.Send(dtoB.Email, "Inscription", $"Bienvenue, par ce mail nous vous confirmons que votre inscription à {thisEvent.Title}, {thisEvent.StartDate.ToLocalTime()}-{thisEvent.EndDate.ToLocalTime()}. Merci & à bientôt ! ");
+            mailer.Send(dtoB.Email, "Inscription", $"Bienvenue, par ce mail nous vous confirmons que votre inscription à {thisEvent.Title}, prévu de {thisEvent.StartDate.ToLocalTime()} à {thisEvent.EndDate.ToLocalTime()}. Merci & à bientôt ! ");
             transactionScope.Complete();
             
         }

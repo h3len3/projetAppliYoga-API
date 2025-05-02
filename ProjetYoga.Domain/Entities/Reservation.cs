@@ -14,7 +14,7 @@ namespace ProjetYoga.Domain.Entities
         public int Id_Event { get; set; }
         public Event Event { get; set; }
 
-        public DateTime DateReservation { get; set; }
+        public DateTime DateReservation { get; set; } = DateTime.UtcNow;
 
         //Relation avec PaymentMode
         public int PaymentModeId { get; set; }

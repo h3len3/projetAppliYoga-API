@@ -41,7 +41,7 @@ namespace ProjetYoga.Application.Services
                 Id_Event = r.Id_Event,
                 Id_User = r.Id_User,
                 Email = r.User?.Email,
-                DateReservation = r.DateReservation,
+                DateReservation = r.DateReservation.ToLocalTime(),
                 PaymentModeId = r.PaymentModeId,
                 Payed = r.Payed
             }).ToList();
