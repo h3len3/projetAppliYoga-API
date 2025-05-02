@@ -10,5 +10,6 @@ namespace ProjetYoga.Application.DTO
     {
         public string Name { get; set; }
         public CreateAddressDTO Address { get; set; }
+
     }
 }

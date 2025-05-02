@@ -17,7 +17,7 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace ProjetYoga.Application.Services
 {
-    public class EventService(IEventRepository eventRepository, IMailer mailer, IUserRepository userRepository, IReservationRepository reservationRepository, IUserService userService) : IEventService
+    public class EventService(IEventRepository eventRepository, IMailer mailer, IUserRepository userRepository, IReservationRepository reservationRepository, IUserService userService, IPlaceEventYogaRepository placeEventYogaRepository) : IEventService
     {
        
         public List<Event> GetEvents()
@@ -50,6 +50,30 @@ namespace ProjetYoga.Application.Services
             // vérifier toutes les règles de création : pas vraiment dans ce cas
 
             //enregistrer, dans la DB
+            //la place event yoga 
+            if (dto.Id_PlaceEventYoga == 0)
+            {
+              PlaceEventYoga placeEventYoga =  new PlaceEventYoga
+                {
+                    NamePlaceEventYoga = dto.NewPlaceEventYoga!.Name,
+                    Address = new Address
+                    {
+                        Street = dto.NewPlaceEventYoga.Address.Street,
+                        NumberStreet = dto.NewPlaceEventYoga.Address.NumberStreet,
+                        PostalCode = dto.NewPlaceEventYoga.Address.PostalCode,
+                        City = dto.NewPlaceEventYoga.Address.City,
+                        Country = dto.NewPlaceEventYoga.Address.Country
+
+                    }
+                };
+
+                placeEventYogaRepository.Add( placeEventYoga );
+                dto.Id_PlaceEventYoga = placeEventYoga.Id_PlaceEventYoga;
+
+            }
+
+            
+
             Event toAdd = GetTypeForEvent(dto.Type);
             toAdd.Title = dto.Title;
             toAdd.Description = dto.Description;
@@ -59,23 +83,9 @@ namespace ProjetYoga.Application.Services
             toAdd.MinSub = dto.MinSub;
             toAdd.Available = true;
             toAdd.Id_PlaceEventYoga = dto.Id_PlaceEventYoga ?? 0;
-            toAdd.PlaceEventYoga = dto.Id_PlaceEventYoga != null ? null : new PlaceEventYoga
-            {
-                NamePlaceEventYoga = dto.NewPlaceEventYoga!.Name,
-                Address = new Address
-                {
-                    Street = dto.NewPlaceEventYoga.Address.Street,
-                    NumberStreet = dto.NewPlaceEventYoga.Address.NumberStreet,
-                    PostalCode = dto.NewPlaceEventYoga.Address.PostalCode,
-                    City = dto.NewPlaceEventYoga.Address.City,
-                    Country= dto.NewPlaceEventYoga.Address.Country
-
-                }
-            };
-            Event e = eventRepository.Add(toAdd);
-
-            return e;
-
+            
+            eventRepository.Add( toAdd );
+            return toAdd ;
 
     }
 
