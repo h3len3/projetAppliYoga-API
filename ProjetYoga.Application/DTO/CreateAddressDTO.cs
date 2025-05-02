@@ -9,7 +9,7 @@ namespace ProjetYoga.Application.DTO
     public class CreateAddressDTO
     {
         public string Street { get; set; }
-        public int NumberStreet { get; set; }
+        public int? NumberStreet { get; set; }
 
         public string City { get; set; }
         public string PostalCode { get; set; }

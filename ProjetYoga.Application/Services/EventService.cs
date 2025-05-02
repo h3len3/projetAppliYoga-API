@@ -22,7 +22,9 @@ namespace ProjetYoga.Application.Services
        
         public List<Event> GetEvents()
         {
-            return eventRepository.Find();
+            return eventRepository.GetAllWithPlaceAndAddress();
+
+
         }
 
         // créer un Event <-> règles métier
@@ -59,7 +61,7 @@ namespace ProjetYoga.Application.Services
                     Address = new Address
                     {
                         Street = dto.NewPlaceEventYoga.Address.Street,
-                        NumberStreet = dto.NewPlaceEventYoga.Address.NumberStreet,
+                        NumberStreet = dto.NewPlaceEventYoga.Address.NumberStreet.Value,
                         PostalCode = dto.NewPlaceEventYoga.Address.PostalCode,
                         City = dto.NewPlaceEventYoga.Address.City,
                         Country = dto.NewPlaceEventYoga.Address.Country
@@ -117,7 +119,7 @@ namespace ProjetYoga.Application.Services
                 Address = new Address
                 {
                     Street = dto.NewPlaceEventYoga.Address.Street,
-                    NumberStreet = dto.NewPlaceEventYoga.Address.NumberStreet,
+                    NumberStreet = dto.NewPlaceEventYoga.Address.NumberStreet.Value,
                     PostalCode = dto.NewPlaceEventYoga.Address.PostalCode,
                     City = dto.NewPlaceEventYoga.Address.City,
                     Country = dto.NewPlaceEventYoga.Address.Country
@@ -164,8 +166,8 @@ namespace ProjetYoga.Application.Services
             // régles pour s'incr à un event, comme exemple : pas à un event passé
             // email qui existe            
             // envoyer un mail 
-            Event thisEvent = eventRepository.FindOne(Id_Event);
-            mailer.Send(dtoB.Email, "Inscription", $"Bienvenue, par ce mail nous vous confirmons que votre inscription à {thisEvent.Title}, prévu de {thisEvent.StartDate.ToLocalTime()} à {thisEvent.EndDate.ToLocalTime()}. Merci & à bientôt ! ");
+            Event thisEvent = eventRepository.FindOneByIdWithLocation(Id_Event) ?? throw new Exception();
+            mailer.Send(dtoB.Email, "Inscription", $"Bienvenue, par ce mail nous vous confirmons que votre inscription à {thisEvent.Title}, prévu de {thisEvent.StartDate.ToLocalTime()} à {thisEvent.EndDate.ToLocalTime()} qui aura lieu à {thisEvent.PlaceEventYoga.NamePlaceEventYoga}, {thisEvent.PlaceEventYoga.Address.Street}, {thisEvent.PlaceEventYoga.Address.NumberStreet} - {thisEvent.PlaceEventYoga.Address.PostalCode} {thisEvent.PlaceEventYoga.Address.City} . Merci & à bientôt ! ");
             transactionScope.Complete();
             
         }

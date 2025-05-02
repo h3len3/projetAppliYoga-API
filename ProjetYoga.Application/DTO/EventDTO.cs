@@ -16,5 +16,10 @@ namespace ProjetYoga.Application.DTO
         public DateTime EndDate { get; set; } = e.EndDate.ToLocalTime();
         public string Type { get; set; } = e.Type;
         public int Id_PlaceEventYoga { get; set; } = e.Id_PlaceEventYoga;
+        //
+
+        public string? PlaceName { get; set; } = e.PlaceEventYoga?.NamePlaceEventYoga; 
+        public string? PlaceAddress { get; set; } = $"{e.PlaceEventYoga?.Address.Street}, {e.PlaceEventYoga?.Address.NumberStreet} - {e.PlaceEventYoga?.Address.PostalCode} {e.PlaceEventYoga?.Address.City}";
     }
+
 }
